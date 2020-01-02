@@ -16,6 +16,7 @@
 # - divider: true  # Will insert a divider in the sidebar
 # - header: My Header  # Will insert a header with no link in the sidebar
 
+
 - title: Introduction and Organization
   url: /Introduction-and-Organization
   not_numbered: true
@@ -25,7 +26,7 @@
   url: /Getting-Started/Introduction
   not_numbered: true
   sections:
-  - title: Principles of design
+  - title: Principles of Engineering Design
     url: /Getting-Started/Principles-of-Design
     not_numbered: true
 
@@ -37,7 +38,7 @@
     url: /Getting-Started/Critical-Thinking-Skills
     not_numbered: true
 
-  - title: Elements of and Engineering Report
+  - title: Elements of an Engineering Report
     url: /Getting-Started/Elements-of-an-Engineering-Report
     not_numbered: true
 
@@ -74,9 +75,9 @@
       url: /Applications/Water-Resources-Engineering/River-Engineering/Introduction
       not_numbered: true
 
-    - title: Geospatial Analysis for Ecological Engineers
-      url: /Applications/Geospatial-Analysis-for-Ecological-Engineers/Introduction
-      not_numbered: true
+  - title: Geospatial Analysis for Ecological Engineers
+    url: /Applications/Geospatial-Analysis-for-Ecological-Engineers/Introduction
+    not_numbered: true
   
 - title: Tools
   url: /Tools/Introduction
@@ -102,10 +103,19 @@
     url: /Tools/Geospatial-Analysis-and-Modeling/Introduction
     not_numbered: true
 
+- title: Design Cookbook Catalog
+  url: /Cookbook/Catalog.md
+  not_numbered: true
+  sections:
+  - title: Culvert Design
+    url: /Applications/Water-Resourses-Engineering/Culvert=Design
+    not_numbered: true
+
 - url: https://github.com/OSU-BEE/Ecological-Engineering-Handbook
   title: GitHub Site
   external: true
   not_numbered: true
 
-- url: /contributing
+- title: Interested in Contributing?
+  url: /contributing
   not_numbered: true

@@ -1,4 +1,4 @@
-#Applications
+# Applications
 
 This collection of Jupyter Notebooks describe a wide range of problems encountered in the practice of Ecological Engineering.  These notebooks examine methods used in ecological engineering analysis, with particular attention paid to ecological engineering design.  We examine   a variety of frequently encountered problem domains in ecological engineering practice.
 

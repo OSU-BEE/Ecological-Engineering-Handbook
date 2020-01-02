@@ -20,10 +20,10 @@ title: Ecological Engineering Handbook
 author: Biological & Ecological Engineering Department, Oregon State University
 email: john.bolte@oregonstate.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  This is an example book built with Jupyter Books.
+  This Jupyter book describes Methods and Tools used in Ecological engineering is an example book built with Jupyter Books.
 
-baseurl: "" # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
-url: "https://bee-jupyter.bee.oregonstate.edu" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/Ecological-Engineering-Handbook" # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+url: "https://osu-bee.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #######################################################################################

@@ -67,10 +67,10 @@
     - url: /Tools/Data-Management-with-Pandas/Introduction
       not_numbered: true
 
-    - url: /Tools/Data-Analysis-Techiques/Introduction
+    - url: /Tools/Data-Analysis-Techniques/Introduction
       not_numbered: true
 
-    - url: /Tools/Modeling-Techiques/Introduction
+    - url: /Tools/Modeling-Techniques/Introduction
       not_numbered: true
 
     - url: /Tools/Geospatial-Analysis-and-Modeling/Introduction

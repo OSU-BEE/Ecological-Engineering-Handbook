@@ -1,0 +1,86 @@
+# This file contains the order and numbering for all sections in the book.
+#
+# Each entry has the following schema:
+#
+# - title: mytitle   # Title of chapter or section
+#   url: /myurl  # URL of section relative to the /content/ folder.
+#   sections:  # Contains a list of more entries that make up the chapter's sections
+#   not_numbered: true  # if the section shouldn't have a number in the sidebar
+#     (e.g. Introduction or appendices)
+#   expand_sections: true  # if you'd like the sections of this chapter to always
+#     be expanded in the sidebar.
+#   external: true  # Whether the URL is an external link or points to content in the book
+#
+# Below are some special values that trigger specific behavior:
+# - search: true  # Will provide a link to a search page
+# - divider: true  # Will insert a divider in the sidebar
+# - header: My Header  # Will insert a header with no link in the sidebar
+
+
+- url: /Introduction-and-Organization
+  not_numbered: true
+  search: true
+
+- url: /Getting-Started/Introduction
+  not_numbered: true
+  sections:
+  - url: /Getting-Started/Principles-of-Design
+    not_numbered: true
+
+  - url: /Getting-Started/Units-and-Dimensional-Analysis
+    not_numbered: true
+
+  - url: /Getting-Started/Critical-Thinking-Skills
+    not_numbered: true
+
+- url: /Applications/Introduction
+  not_numbered: true
+  sections:
+    - url: /Applications/Agricultural-Systems-Engineering/Introduction
+      not_numbered: true
+
+    - url: /Applications/Bioprocess-Engineering-and-Resource-Recovery/Introduction
+      not_numbered: true
+
+    - url: /Applications/Ecosystem-Restoration-Engineering/Introduction
+      not_numbered: true
+
+    - url: /Applications/Water-Resources-Engineering/Introduction
+      not_numbered: true
+      expand_subsections: false
+      subsections:
+        - url: /Applications/Water-Resources-Engineering/Hydrologic-Processes/Introduction
+          not_numbered: true
+        - url: /Applications/Water-Resources-Engineering/River-Engineering/Introduction
+          not_numbered: true
+
+    - url: /Applications/Geospatial-Analysis-for-Ecological-Engineers/Introduction
+      not_numbered: true
+  
+
+- url: /Tools/Introduction
+  not_numbered: true
+  sections:
+    - url: /Tools/Python-Basics/Introduction
+      not_numbered: true
+
+    - url: /Tools/Data-Management-with-Pandas/Introduction
+      not_numbered: true
+
+    - url: /Tools/Data-Analysis-Techiques/Introduction
+      not_numbered: true
+
+    - url: /Tools/Modeling-Techiques/Introduction
+      not_numbered: true
+
+    - url: /Tools/Geospatial-Analysis-and-Modeling/Introduction
+      not_numbered: true
+
+
+- url: https://github.com/OSU-BEE/Ecological-Engineering-Handbook
+  title: GitHub
+  external: true
+  not_numbered: true
+
+- url: /contributing
+  not_numbered: true

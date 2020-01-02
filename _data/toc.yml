@@ -54,7 +54,7 @@
     url: /Applications/Agricultural-Systems-Engineering/Introduction
     not_numbered: true
 
-  - title: Bioprocess Engineering and Resource recovery
+  - title: Bioprocess Engineering and Resource Recovery
     url: /Applications/Bioprocess-Engineering-and-Resource-Recovery/Introduction
     not_numbered: true
 
@@ -65,7 +65,7 @@
   - title: Water Resources Engineering
     url: /Applications/Water-Resources-Engineering/Introduction
     not_numbered: true
-    expand_subsections: true
+    expand_subsections: false
     subsections:
     - title: Hydrologic Processes
       url: /Applications/Water-Resources-Engineering/Hydrologic-Processes/Introduction

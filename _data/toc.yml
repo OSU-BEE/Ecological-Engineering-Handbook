@@ -33,6 +33,12 @@
   - url: /Getting-Started/Critical-Thinking-Skills
     not_numbered: true
 
+  - url: /Getting-Started/Elements-of-an-Engineering-Notebook
+    not_numbered: true
+
+  - url: /Getting-Started/An-Example-Notebook
+    not_numbered: true
+
 - url: /Applications/Introduction
   not_numbered: true
   sections:

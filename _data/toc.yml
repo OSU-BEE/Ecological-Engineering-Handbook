@@ -104,7 +104,7 @@
     not_numbered: true
 
 - title: Design Cookbook Catalog
-  url: /Cookbook/Catalog.md
+  url: /Cookbook/Catalog
   not_numbered: true
   sections:
   - title: Culvert Design

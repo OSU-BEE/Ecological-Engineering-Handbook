@@ -8,6 +8,6 @@ In this section, we introduce the Python programming language, focusing on under
 ## Python Topics
 
 
-1. (Anatomy of a Python Program)[1-Anatomy-of-a-Program.html) (Examples)[1-Anatomy-of-a-Program.html)
+1.[Anatomy of a Python Program](1-Anatomy-of-a-Program.html) [Examples](1-Examples.html)
 2. 
 

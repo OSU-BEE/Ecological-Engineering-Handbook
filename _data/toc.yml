@@ -46,37 +46,37 @@
     url: /Getting-Started/An-Example-Engineering-Report
     not_numbered: true
 
-- title: Applications
-  url: /Applications/Introduction
+- title: Concepts
+  url: /Concepts/Introduction
   not_numbered: true
   sections:
   - title: Agricultural Systems Engineering
-    url: /Applications/Agricultural-Systems-Engineering/Introduction
+    url: /Concepts/Agricultural-Systems-Engineering/Introduction
     not_numbered: true
 
   - title: Bioprocess Engineering and Resource Recovery
-    url: /Applications/Bioprocess-Engineering-and-Resource-Recovery/Introduction
+    url: /Concepts/Bioprocess-Engineering-and-Resource-Recovery/Introduction
     not_numbered: true
 
   - title: Ecosystems Restoration Engineering
-    url: /Applications/Ecosystem-Restoration-Engineering/Introduction
+    url: /Concepts/Ecosystem-Restoration-Engineering/Introduction
     not_numbered: true
 
   - title: Water Resources Engineering
-    url: /Applications/Water-Resources-Engineering/Introduction
+    url: /Concepts/Water-Resources-Engineering/Introduction
     not_numbered: true
     expand_subsections: false
     subsections:
     - title: Hydrologic Processes
-      url: /Applications/Water-Resources-Engineering/Hydrologic-Processes/Introduction
+      url: /Concepts/Water-Resources-Engineering/Hydrologic-Processes/Introduction
       not_numbered: true
   
     - title: River Engineering
-      url: /Applications/Water-Resources-Engineering/River-Engineering/Introduction
+      url: /Concepts/Water-Resources-Engineering/River-Engineering/Introduction
       not_numbered: true
 
   - title: Geospatial Analysis for Ecological Engineers
-    url: /Applications/Geospatial-Analysis-for-Ecological-Engineers/Introduction
+    url: /Concepts/Geospatial-Analysis-for-Ecological-Engineers/Introduction
     not_numbered: true
   
 - title: Tools and Techniques

@@ -23,13 +23,13 @@ In this section, we introduce the Python programming language, focusing on under
 </tr>
 
 <tr>
-<td><a href="1-Data-Types-Ops-and-Slicing.html">Introduction to Python Data Types, numpy arrays, built-in functions, and "Slicing"</a></td>
+<td><a href="2-Data-Types-Ops-and-Slicing.html">Introduction to Python Data Types, numpy arrays, built-in functions, and "Slicing"</a></td>
 <td><ul><li>Built-in data types/functions</li><li>Sequences</li><li>numpy arrays</li><li>Slicing</li></ul></td>
 <td><a href="2.Examples.html">2. More Examples</a></td>
 </tr>
 
 <tr>
-<td><a href="2-Pandas-Cookbook.html">Pandas Cookbook for Data Management</a></td>
+<td><a href="3-Pandas-Cookbook.html">Pandas Cookbook for Data Management</a></td>
 <td><ul><li>Reading/Writing Datasets</li><li>Extracting Data</li><li>Filtering and Sorting Datasets</li></ul></td>
 <td></td>
 </tr>

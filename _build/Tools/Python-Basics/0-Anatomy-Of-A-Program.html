@@ -1,0 +1,413 @@
+---
+redirect_from:
+  - "/tools/python-basics/0-anatomy-of-a-program"
+interact_link: content/Tools/Python-Basics/0-Anatomy-Of-A-Program.ipynb
+kernel_name: python3
+kernel_path: content/Tools/Python-Basics
+has_widgets: false
+title: |-
+  Anatomy Of A Program
+pagenum: 17
+prev_page:
+  url: /Tools/Python-Basics/Introduction.html
+next_page:
+  url: /Tools/Data-Management-with-Pandas/Introduction.html
+suffix: .ipynb
+search: program python function data code case argument n below pandas programs programming string print fibonacci values f statement package file things provide console note above useful arguments example sequence integers dataset column instructions using process storing used integer numbers also functions reading printing hello world idea functionality blocks take prints statements test level import excel plotting images recipe series task writing order specific syntax interpreter involves various strings objects others set simple very prepackaged takes type working enclosed single quotes e g name optionally action calculating defined given through def followed parenthesis list called variable conditional else execution range return
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Anatomy Of A Program</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Anatomy-of-a-Python-Program">Anatomy of a Python Program<a class="anchor-link" href="#Anatomy-of-a-Python-Program"> </a></h1><p><img src="images/ProgramAsRecipe.png" alt="Program as Recipe" title="Program as Recipe" style="float:right;width:50%;margin:0.5em" /></p>
+<p>Python programs (and just about any program, for that matter) can be thought of as <strong>recipes</strong> that contain a <strong>a stepwise series of instructions</strong> to acomplish some task. In Python programming, these steps are accomplished by writing down the instructions, in order, using a specific syntax that us understood by the Python interpreter.  The process of <strong>running a program</strong> involves storing these instructions in a text file (with a .py extension) and then asking a Python interpreter to process this file. Much of the process of learning to program involves understanding the specific syntax for the programming language being used.</p>
+<p>In general, programs deal with data.  This data comes in various forms - things like <strong>strings</strong>, <strong>integer</strong>, <strong>real (floating point) numbers</strong>, but also more complicated objects like <strong>arrays</strong> and <strong>lists</strong> (storing multiple objects), <strong>dataframes</strong> (storing rectangular datasets), <strong>images</strong>, and many others.  Programming languages provide methods for <em>operating</em> on this data, like <strong>adding numbers</strong>, computing various mathematical functions, <strong>reading and writing</strong> data, <strong>visualizing data</strong> and many others.  Python provides a rich set of these capabilities, some of which we will explore below.</p>
+<p>We will start with a traditional first program, printing the string "Hello World" to the console.  In Python, this is a simple task, requiring one line of code as shown below.  This very simple program demonstrate a couple of programming concepts: 1) the idea of invoking a <em>function</em> (<strong>print</strong>), a "prepackaged" functionality, that takes an <em>argument</em> and does something with that argument, in this case printing it to the console, and 2) the idea of a <em>data type</em>, in this case a <strong>string</strong> consisting of the characters <strong>Hello World</strong>.  Also note that in the <em>code blocks</em> below, we provide working python code in the <strong>In[ ]</strong> blocks, and output from the code in the <strong>Out[ ]</strong> blocks.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this program prints the string &quot;Hello World&quot; to the console</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hello World
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Some-things-to-note-about-the-program-above:">Some things to note about the program above:<a class="anchor-link" href="#Some-things-to-note-about-the-program-above:"> </a></h3><ol>
+<li><p>Anything to the right of a <strong>#</strong> (hash) character is consider a <strong>comment</strong> and is ignored by Python.  Comments are useful for documenting what the program is doing.</p>
+</li>
+<li><p><code>Hello World</code> is a <strong>string</strong>.  Strings are always enclosed with single quotes (<strong>'</strong>) or double quotes (<strong>"</strong>), e.g. <code>'this is a string'</code></p>
+</li>
+<li><p><code>print</code> is the name of a <strong>function</strong>.  Functions are pieces of code that (optionally) take <strong>arguments</strong> (enclosed in parentheses) and operate on those arguments to produce a result or take an action.  In this case, the <code>print</code> function takes a single argument, a <em>string</em>, as prints the argument to the console.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-more-interesting-example---calculating-a-fibonacci-sequence">A more interesting example - calculating a fibonacci sequence<a class="anchor-link" href="#A-more-interesting-example---calculating-a-fibonacci-sequence"> </a></h2><p>The second example calculates the Fibonacci sequence for the the integers 1-10 and prints them to the console.  We provide a user-defined function to calculate the Fibonacci values for a given integer, and loop through the integers in order, calculating and printing the sequence values.  Recall that the Fibonacci number of a given integer is the sum of all integers less than that number;  Specifically:</p>
+<p>$ F(0) = 0, F(1) = 1, F(n) = F(n-1) + F(n-2) $ for n &gt; 1</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define a function that takes as input an integer,</span>
+<span class="c1"># and returns the Fibonacci number for that sequence</span>
+<span class="k">def</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="c1"># main program - print n, Fibonacci(n) for n in [1,9]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 1
+2 1
+3 2
+4 3
+5 5
+6 8
+7 13
+8 21
+9 34
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Some-things-to-note-about-the-program-above">Some things to note about the program above<a class="anchor-link" href="#Some-things-to-note-about-the-program-above"> </a></h3><ol>
+<li>We define a <strong>function</strong> with the <code>def</code> keyword, followed by an open parenthesis (<strong>(</strong>), a list of arguments, a closed parenthesis (<strong>)</strong>) and a colon (<strong>:</strong>).  Anytime this function is called, it recieves an argument (<strong>n</strong>) and executes the program code associate with the function.</li>
+<li><strong>n</strong> is a <strong>variable</strong> that can be assigned different values as needed.</li>
+<li><strong>Conditional statements</strong> (e.g. <code>if</code>, <code>elif</code> ("else-if"), and <code>else</code> test conditions and <em>branch</em> a program's sequence of execution based on the test. The <code>==</code> operator test for equality.</li>
+<li><strong>Loops</strong> are indicated with the <code>for</code> statement.  <code>for</code> statments repeat for a set of values, in this case a range of integers going from 1 to 9. The <code>range()</code> function ruturns an array of numbers starting with the first argument (1), and continuing up to (but not including) the last argument, in this case, 10, in increments of 1. </li>
+<li>The <code>return</code> statement indicates that the function is finished.  Optionally, we can return results from the function, in this case the compute Fibonacci value for <strong>n</strong>.</li>
+<li>The <strong>indentation level</strong> of a statement matters! in the conditional statements above, the level of nest determines which code lines are associated with each condition (or other program control block, like <code>for</code> and <code>def</code>).</li>
+<li>Statements with no indentation (all the way to the left) comprise <strong>the main program</strong> - this code is where execution starts when a program is run.  </li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-more-useful-example---reading-and-charting-data">A more useful example - reading and charting data<a class="anchor-link" href="#A-more-useful-example---reading-and-charting-data"> </a></h2><p>The following program shows of how Python can be used to address more useful problems, in this case reading a dataset from a website (URL) and generating a visualization of the dataset for display.  It demonstrates the use of high level functions for performing key tasks, and the idea of <em>importing</em> prepackaged functionality from Python libraries available to your programs.  This functional is accessed using the <strong>import</strong> statement, which loads functionality from the specified package (library) into your program. In the example below, we <strong>import</strong> a package called <strong>pandas</strong>, a widely used data management and analysis library we will use frequently. We use <strong>pandas</strong> to read a CSV (comma-separated values) file forom disk, print a list of column headers, print the first few records (the <em>head</em>) of the dataset, and then plot two of the columns of data, once as time series, followed by a plot of one column against the other.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>   <span class="c1"># imports the pandas library into our program</span>
+
+<span class="c1"># first, we read a dataset using pandas&#39; read_excel() function.  </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;StreamTemp.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>  
+
+<span class="c1"># print the column labels and first few records</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># plot some of the columns</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,[</span><span class="s1">&#39;MeanAirTempC&#39;</span><span class="p">,</span><span class="s1">&#39;MaxStreamTempC&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;MeanAirTempC&#39;</span><span class="p">,</span><span class="s1">&#39;MaxStreamTempC&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;GnBu&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;StationID&#39; &#39;Date&#39; &#39;Latitude&#39; &#39;Longitude&#39; &#39;StreamDischargeCFS&#39;
+ &#39;MinAirTempC&#39; &#39;MaxAirTempC&#39; &#39;MeanAirTempC&#39; &#39;DayOfYear&#39; &#39;MaxStreamTempC&#39;]
+
+   StationID       Date  Latitude  Longitude  StreamDischargeCFS  MinAirTempC  \
+0   14166000 2000-10-05   44.2704  236.82629                6480      7.59113   
+1   14166000 2000-10-06   44.2704  236.82629                6390      6.03772   
+2   14166000 2000-10-07   44.2704  236.82629                6450      4.81598   
+3   14166000 2000-10-08   44.2704  236.82629                6430      6.46249   
+4   14166000 2000-10-09   44.2704  236.82629                6630      3.60986   
+
+   MaxAirTempC  MeanAirTempC  DayOfYear  MaxStreamTempC  
+0      15.8333      11.71220        279            14.4  
+1      13.5453       9.79153        280            14.6  
+2      14.8859       9.85095        281            14.7  
+3      16.5998      11.53120        282            14.6  
+4      20.7747      12.19230        283            14.6  
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fc3726d9d30&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/Tools/Python-Basics/0-Anatomy-Of-A-Program_7_2.png"
+>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/Tools/Python-Basics/0-Anatomy-Of-A-Program_7_3.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Some-things-to-note-about-the-program-above">Some things to note about the program above<a class="anchor-link" href="#Some-things-to-note-about-the-program-above"> </a></h3><ol>
+<li>The <code>import</code> statement load the <strong>pandas</strong> data analysis package into our program, which we can access through the <code>pd</code> name.</li>
+<li><code>pandas</code> exposes many function for working with data - in this case, we take advantage of the <code>read_excel()</code> function that reads Excel spreadsheets.  There are many optional arguments to this function for handing special circumstance, but all we need to read our spreadsheet is the a filename referencing a local Excel file, and instruction to interpret the <strong><em>Date</em></strong> column as a <code>date</code> type defined by Python.  <code>pandas</code> can also load dataset from an internet location.  </li>
+<li>The <code>read_excel()</code> function returns a <strong><em>Dataframe</em></strong> object, which consists of rows and columns of data mirroring that in the Excel spreadsheet, alond with additional information like indexes, column labels, etc. We store this Dataframe in a variable <code>df</code>.</li>
+<li><code>pandas</code> supports<strong>plotting</strong> the data as well, using the <code>matplotlib</code> plotting package underneath the hood.  We'll see lots of examples of <code>matplotlib</code> in action; it is a very powerful plotting package for 2-D and 3-D plotting. </li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-Typical-Python-Program">A Typical Python Program<a class="anchor-link" href="#A-Typical-Python-Program"> </a></h2><p>The program below shows a typical Python program, and demonstrates features that are common to many programs.  It prints a table of temperture conversions between Celsius and Fahrenheit.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This is a typical Python program.  We start with a &quot;comment&quot; - descriptive text that </span>
+<span class="c1"># is ignored by Python but allows one to document a program.  This text block is an </span>
+<span class="c1"># example of a comment.  Everything to the right of a &#39;#&#39; character is a comment</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>   <span class="c1"># this is an import statement.  It allows us to utilize prexisting </span>
+                     <span class="c1"># libraries of code (and associated functionality) in our programs.</span>
+                     <span class="c1"># In this case, we are importing the &quot;numpy&quot; library, whci provides </span>
+                     <span class="c1"># support for arrays, mathematical operations on arrays, and a lot more</span>
+            
+            
+<span class="c1"># Next, we define a function.  In this case, the function will convert Fahrenheit temperature</span>
+<span class="c1"># values to Celsius.  Functiosn start with the *def* keyword, may accept arguments (inputs),</span>
+<span class="c1"># and typical return the results of a calculation.  Zero or more variables may be returned</span>
+<span class="c1"># from a function.        </span>
+<span class="k">def</span> <span class="nf">FtoC</span><span class="p">(</span><span class="n">FValues</span><span class="p">):</span>
+    <span class="n">CValues</span> <span class="o">=</span> <span class="p">(</span><span class="n">FValues</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span><span class="o">/</span><span class="mf">9.0</span>
+    <span class="k">return</span> <span class="n">CValues</span>
+
+<span class="c1"># Next, we define a &quot;main&quot; program.  In this program, we will:</span>
+<span class="c1"># 1) create an array of Fahrenheit temperatures between 0 and 120 in increments of 5,</span>
+<span class="c1"># 2) convert them to Celsius</span>
+<span class="c1"># 3) print the pairs of values to a table</span>
+
+<span class="n">fvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">121</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># call a function to create an array of F temperature values between 0, 120</span>
+<span class="n">cvalues</span> <span class="o">=</span> <span class="n">FtoC</span><span class="p">(</span> <span class="n">fvalues</span> <span class="p">)</span>      <span class="c1"># convert those values to celsius be calling our function</span>
+
+<span class="c1"># at this point, we have two arrays, one with fahrenheit values, one with celsius values.  Let&#39;s make a table</span>
+<span class="c1"># by printing these arrays to the console, using various formas of the &quot;print&quot; function.  We start with a </span>
+<span class="c1"># header, and then use a &quot;for&quot; loop to iterate through the two arrays, printing temperature pairs</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Fahrenheit | Celsius   &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;-----------------------&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fvalues</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:6.1f}</span><span class="s2">      </span><span class="si">{:6.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">fvalues</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cvalues</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    
+<span class="c1"># all done</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Fahrenheit | Celsius   
+-----------------------
+   0.0       -17.8
+   5.0       -15.0
+  10.0       -12.2
+  15.0        -9.4
+  20.0        -6.7
+  25.0        -3.9
+  30.0        -1.1
+  35.0         1.7
+  40.0         4.4
+  45.0         7.2
+  50.0        10.0
+  55.0        12.8
+  60.0        15.6
+  65.0        18.3
+  70.0        21.1
+  75.0        23.9
+  80.0        26.7
+  85.0        29.4
+  90.0        32.2
+  95.0        35.0
+ 100.0        37.8
+ 105.0        40.6
+ 110.0        43.3
+ 115.0        46.1
+ 120.0        48.9
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Additional-Python-Programming-Resources">Additional Python Programming Resources<a class="anchor-link" href="#Additional-Python-Programming-Resources"> </a></h2><p>There are many excellent Python resources available online; below we provide links to several we have found to be particularly useful.</p>
+<p>1.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

@@ -91,9 +91,21 @@
       url: /Tools/Python-Basics/0-Anatomy-Of-A-Program
       non_numbered: true
 
-  - title: Data Management With Pandas
-    url: /Tools/Data-Management-with-Pandas/Introduction
-    not_numbered: true
+    - title: Getting Started
+      url: /Tools/Python-Basics/1-Getting-Started
+      non_numbered: true
+
+    - title: Collections, Numpy and Slicing
+      url: /Tools/2-Collections-Numpy-Slicing
+      not_numbered: true
+  
+    - title: Pandas
+      url: /Tools/3-Pandas-Cookbook
+      not_numbered: true
+
+    - title: Matplotlib Cookbook
+      url: /Tools/4-Matplotlib-Cookbook
+      not_numbered: true
 
   - title: Basic Data Analysis Techniques
     url: /Tools/Data-Analysis-Techniques/Introduction

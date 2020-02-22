@@ -1,0 +1,503 @@
+---
+redirect_from:
+  - "/tools/python-basics/2-collections-numpy-slicing"
+interact_link: content/Tools/Python-Basics/2-Collections-Numpy-Slicing.ipynb
+kernel_name: python3
+kernel_path: content/Tools/Python-Basics
+has_widgets: false
+title: |-
+  Collections, Numpy and Slicing
+pagenum: 19
+prev_page:
+  url: /Tools/Python-Basics/1-Getting-Started.html
+next_page:
+  url: /Tools/Python-Basics/3-Pandas-Cookbook.html
+suffix: .ipynb
+search: td style text align tr numpy collections b types lili slicing collection list python data leftcollection indicated li ul items arrays array string leftulli tuple information dictionaries useful accessing below basic built also concept extract provides table thth objects changed strings containing another ways counting appending inserting deleting elements anything store example explore programs demonstrating pythons focusing introduce allows us quickly cleanly subset sequence support complex hold three font size small trthtype leftdescription leftexamples th tdstring characters single double quotes left ullithis lilithis liliabc tdlist mutable brackets tdtuple unmutable not parentheses tddictionary bkey value pairs where keys used values braces
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Collections, Numpy and Slicing</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Python-Collections,-Numpy-Arrays,-and-Slicing">Python Collections, Numpy Arrays, and Slicing<a class="anchor-link" href="#Python-Collections,-Numpy-Arrays,-and-Slicing"> </a></h1><p>Below, we explore some basic Python programs for demonstrating use of Python's built-in data types, focusing on <strong>collections</strong> and <code>numpy</code> <strong>arrays</strong>.  We also introduce the concept of <strong>slicing</strong>, which allows us to quickly and cleanly extract subset of sequence and array types.</p>
+<h2 id="Collections">Collections<a class="anchor-link" href="#Collections"> </a></h2><p>Python has built-in support for "collection" data types - these are complex data types that hold other collections of other data.  Python provides three basic collection types:</p>
+<table style='font-size:small'>
+    <tr><th>Type</th><th style='text-align:left'>Description</th><th style='text-align:left'>Examples</th></tr>
+    <tr>
+        <td>String</td>
+        <td style='text-align:left'>Collection of characters, indicated by single or double quotes</td>
+        <td style='text-align:left'>
+            <ul><li>"this is a string"</li><li>'this is also a string'</li><li>'ABC-123'</li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>List</td>
+        <td style='text-align:left'>Collection of 'mutable' objects (they can be changed), indicated by brackets (<b>[ ]</b>)</td>
+        <td style='text-align:left'><ul><li>[1,2,3]</li><li>[ 'a', 32, 14.7 ]'</li><li>[ 'A','list','of','strings' ]</li><li>["a list containing", [ "another list" ] ] </li></ul></td>
+    </tr>    
+    <tr>
+        <td>Tuple</td>
+        <td style='text-align:left'>Collection of 'unmutable' objects (they can NOT be changed), indicated by parentheses (<b>( )</b>)</td>
+        <td style='text-align:left'><ul><li>(1,2,3)</li><li>( 'a', 32, 14.7 )'</li><li>[ 'A','tuple','of','strings' ]</li><li>["a tuple containing", ( "another tuple" ) ) </li></ul></td>
+    </tr>    
+    <tr>
+        <td>Dictionary</td>
+        <td style='text-align:left'>Collection of <b>key:value pairs</b>, where keys are used to look up values, indicated by braces (<b>{ }</b>)</td>
+        <td style='text-align:left'><ul><li>{'name':'John', 'age':56}</li></ul></td>
+    </tr>
+</table><p>Additionally, <strong>numpy</strong> provides array and matrix types that we will use extensively.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Making-Collections">Making Collections<a class="anchor-link" href="#Making-Collections"> </a></h2><p>Collections can be created in multiple ways...</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># make a string</span>
+<span class="n">mystr</span> <span class="o">=</span> <span class="s2">&quot;this is a string&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string:&quot;</span><span class="p">,</span> <span class="n">mystr</span><span class="p">)</span><span class="c1"># make a list</span>
+
+<span class="c1"># make a list</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list:&quot;</span><span class="p">,</span> <span class="n">mylist</span><span class="p">)</span>
+
+<span class="c1"># make a tuple</span>
+<span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;this is a tuple&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;a tuple within a tuple&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tuple:&quot;</span><span class="p">,</span> <span class="n">mytuple</span><span class="p">)</span>
+
+<span class="c1"># make a few numpy arrays</span>
+<span class="n">mynp_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># array of ten zeros</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.zeros():&quot;</span><span class="p">,</span> <span class="n">mynp_zeros</span><span class="p">)</span>
+<span class="n">mynp_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># array of ten ones</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.ones():&quot;</span><span class="p">,</span> <span class="n">mynp_ones</span><span class="p">)</span>
+<span class="n">mynp_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># range of values, starting at 0, ending at 4.5, in increments of 0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.arange():&quot;</span><span class="p">,</span> <span class="n">mynp_range</span><span class="p">)</span>
+<span class="n">mynp_range2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>  <span class="c1"># evenly spaced range of 10 values, starting at 0, ending at 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.linspace():&quot;</span><span class="p">,</span> <span class="n">mynp_range2</span><span class="p">)</span>
+<span class="n">mynp_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>  <span class="c1"># 2D matrix of integers, filled with zeros</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2x3 matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mynp_matrix</span><span class="p">)</span>
+
+<span class="n">mydictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">10</span> <span class="p">}</span> <span class="c1"># dictionary (key:value pairs</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dictionary:&quot;</span><span class="p">,</span> <span class="n">mydictionary</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>string: this is a string
+list: [1, 2, 3, 4, 5]
+tuple: (&#39;this is a tuple&#39;, 4, &#39;a tuple within a tuple&#39;)
+np.zeros(): [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+np.ones(): [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+np.arange(): [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5]
+np.linspace(): [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5 5. ]
+2x3 matrix:
+ [[0 0 0]
+ [0 0 0]]
+dictionary: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 10}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Counting,-appending,-inserting,-deleting-items-in-a-List">Counting, appending, inserting, deleting items in a List<a class="anchor-link" href="#Counting,-appending,-inserting,-deleting-items-in-a-List"> </a></h3>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>  <span class="c1"># &#39;a&#39; is a list, but it works pretty much the same with numpy arrays</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;length of a: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>    <span class="c1"># len(collection) returns the count of items in the collection</span>
+
+<span class="c1"># append list</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>  <span class="c1"># &#39;+&#39; returns a new object, so we have to assign a variable to it</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After +: &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># append single item </span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>    <span class="c1"># .append() operates on an existing object, so no assignment necessary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After append(): &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># insert an item (0) at a specific location (index 5) - remember indexes are zero-based</span>
+<span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After insert():&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># remove a particular item in the collection</span>
+<span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After remove():&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># delete an item at a particular index location</span>
+<span class="k">del</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After del():&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># clear out an array</span>
+<span class="n">a</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>   <span class="c1"># or a=[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After clear():&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>length of a: 6
+After +:  [1, 2, 3, 4, 5, 6, 7, 8]
+After append():  [1, 2, 3, 4, 5, 6, 7, 8, 10]
+After insert(): [1, 2, 3, 4, 5, 0, 6, 7, 8, 10]
+After remove(): [1, 2, 3, 4, 5, 6, 7, 8, 10]
+After del(): [1, 2, 4, 5, 6, 7, 8, 10]
+After clear(): []
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Counting,-appending,-inserting,-deleting,-reshaping-items-in-a-numpy-array">Counting, appending, inserting, deleting, reshaping items in a numpy array<a class="anchor-link" href="#Counting,-appending,-inserting,-deleting,-reshaping-items-in-a-numpy-array"> </a></h3><p>These are but a few of the ways - see the numpy docs at <a href="https://numpy.org">https://numpy.org</a> for more information.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>  <span class="c1"># &#39;a&#39; now a numpy array</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;length of a: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>    <span class="c1"># len(collection) returns the count of items in the collection</span>
+
+<span class="c1"># append list</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]))</span>  <span class="c1"># returns a new object, so we have to assign a variable to it</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After +: &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># append single item </span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,[</span><span class="mi">10</span><span class="p">])</span>    <span class="c1"># np.append() returns a new oject, assignment necessary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After append(): &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># insert an item (0) at a specific location (index 5) - remember indexes are zero-based</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After insert():&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># delete an item at a particular index location</span>
+<span class="n">a</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After delete():&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># reshape an array (returns new array (or view))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After reshape():&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>length of a: 6
+After +:  [1 2 3 4 5 6 7 8]
+After append():  [ 1  2  3  4  5  6  7  8 10]
+After insert(): [ 1  2  3  4  5  0  6  7  8 10]
+After delete(): [ 1  2  4  5  0  6  7  8 10]
+After reshape(): [[ 1  2  4]
+ [ 5  0  6]
+ [ 7  8 10]]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries"> </a></h3><p>Dictionaries are a slightly different, but often useful, collection type.  Instead of accessing elements by location (index), we access them by providing a <strong>key</strong>, which can be a string, number or about anything else.  Dictionaries are useful when it is convenient to store information by keyword lookup.</p>
+<p>In the example below, we use a dictionary to store information about an satellite image, but the concept can be extended to about anything.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make an empty dictionary</span>
+<span class="n">imageInfo</span> <span class="o">=</span> <span class="p">{}</span>   <span class="c1"># &#39;a&#39; is now an empty dictionary</span>
+
+<span class="c1"># add some key:value pairs to </span>
+<span class="n">imageInfo</span><span class="p">[</span><span class="s1">&#39;location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Oregon&#39;</span>
+<span class="n">imageInfo</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">45.7</span><span class="p">,</span><span class="mf">132.34</span><span class="p">)</span>
+<span class="n">imageInfo</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">imageInfo</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">imageInfo</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;12/12/2109&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">imageInfo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;length: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imageInfo</span><span class="p">)))</span>    <span class="c1"># len(collection) returns the count of items in the collection</span>
+
+<span class="c1"># use key to &#39;look up&#39; elements</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imageInfo</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">imageInfo</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;location&#39;: &#39;Oregon&#39;, &#39;center&#39;: (45.7, 132.34), &#39;width&#39;: 800, &#39;height&#39;: 800, &#39;date&#39;: &#39;12/12/2109&#39;}
+length: 5
+(45.7, 132.34)
+12/12/2109
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Accessing-items-in-a-Collection">Accessing items in a Collection<a class="anchor-link" href="#Accessing-items-in-a-Collection"> </a></h3><p>For all of the Collections described above, accessing items in the collection is accomplished using the <strong>[ ]</strong> operators as follows (remember, indexes are zero-based):</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">mytuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">myarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">mymatrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;key1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span><span class="s2">&quot;value2&quot;</span> <span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mytuple</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myarray</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mymatrix</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mydict</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3
+3
+3
+8
+value2
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Slicing">Slicing<a class="anchor-link" href="#Slicing"> </a></h2><p>Slicing is an extremely powerful and useful way to extract subsets of elements from list, tuples, numpy arrays, and numpy matrices, and is supported by many additional libraries as well.  Slicing builds on the bracket accessor operator (<strong>[ ]</strong>) notation, and is best demonstrated by example:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">myarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">mymatrix</span> <span class="o">=</span> <span class="n">mymatrix</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mylist:&quot;</span><span class="p">,</span> <span class="n">mylist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;myarray:&quot;</span><span class="p">,</span> <span class="n">myarray</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mymatrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mymatrix</span><span class="p">)</span>
+
+<span class="c1"># get a subset - [start:end]   NOTE: up to BUT NOT INCLUDING end!</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;mylist[1:3]:&quot;</span><span class="p">,</span> <span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># start at index 1, end at index 2</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;myarray[1:3]:&quot;</span><span class="p">,</span> <span class="n">myarray</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># for 2D matrices, we need to specify row and columns</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;mymatrix[0:2,1:3]:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mymatrix</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># rows 1 and 2, column 0</span>
+
+<span class="c1"># you can &quot;default&quot; to start or end</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;mylist[:3]:&quot;</span><span class="p">,</span> <span class="n">mylist</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># start at beginning, end at index 2</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;myarray[2:]:&quot;</span><span class="p">,</span> <span class="n">myarray</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>  <span class="c1"># start at index 2, end at end</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;mymatrix[:2,2:]:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mymatrix</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">:])</span>  <span class="c1"># rows 0 and 1, last oolumn</span>
+
+<span class="c1"># &#39;:&#39;&#39; by itself is &quot;all&quot;</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;myarray[:]:&quot;</span><span class="p">,</span> <span class="n">myarray</span><span class="p">[:])</span>  <span class="c1"># all items</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;mymatrix[:,0:2]:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mymatrix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># all rows, columns 0-1</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;mymatrix[1,:]:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mymatrix</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,:])</span>  <span class="c1"># row 1, all columns,</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>mylist: [0, 1, 2, 3, 4]
+myarray: [0 1 2 3 4 5 6 7 8]
+mymatrix:
+ [[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+mylist[1:3]: [1, 2]
+myarray[1:3]: [1 2]
+mymatrix[0:2,1:3]:
+ [[1 2]
+ [4 5]]
+mylist[:3]: [0, 1, 2]
+myarray[2:]: [2 3 4 5 6 7 8]
+mymatrix[:2,2:]:
+ [[2]
+ [5]]
+myarray[:]: [0 1 2 3 4 5 6 7 8]
+mymatrix[:,0:2]:
+ [[0 1]
+ [3 4]
+ [6 7]]
+mymatrix[1,:]:
+ [[3 4 5]]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

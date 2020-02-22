@@ -1,0 +1,547 @@
+---
+redirect_from:
+  - "/tools/python-basics/3-pandas-cookbook"
+interact_link: content/Tools/Python-Basics/3-Pandas-Cookbook.ipynb
+kernel_name: python3
+kernel_path: content/Tools/Python-Basics
+has_widgets: false
+title: |-
+  Pandas
+pagenum: 20
+prev_page:
+  url: /Tools/Python-Basics/2-Collections-Numpy-Slicing.html
+next_page:
+  url: /Tools/Python-Basics/4-Matplotlib-Cookbook.html
+suffix: .ipynb
+search: pandas data dataframe using rows columns pydata org object common docs stable html excel reading writing file below readcsv readexcel column cookbook management analysis review focus tasks excellent online provides methods objects csv creating extracting filtering query sorting functions files into getting documentation reference api python package extensive functionality section handful practical techniques taking advantage capabilities not intended exhaustive rather instead perform resources starting official site minute tutorial gettingstarted min beginners also available central holds rectangular collections think spreadsheet table manipulating analyzing providing recipes following datasets set high level several formats perhaps helpfully comma separated values microsoft cases read including
+
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+    <main class="jupyter-page">
+    <div id="page-info"><div id="page-title">Pandas</div>
+</div>
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pandas-Cookbook">Pandas Cookbook<a class="anchor-link" href="#Pandas-Cookbook"> </a></h1><p><code>Pandas</code> is a Python package with extensive data management and analysis functionality.  In this section, we will review a handful of practical techniques for taking advantage of <code>Pandas</code> capabilities. This is not intended to be an exhaustive review of <code>Pandas</code>; rather, we focus instead on using <code>Pandas</code> to perform common data management and analysis tasks. There are excellent resources on <code>pandas</code> online, starting with the official site, <a href="https://pandas.pydata.org">https://pandas.pydata.org</a>.  An <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">excellent 10-minute tutorial</a> for <code>pandas</code> beginners is also available online.</p>
+<p>Central to <code>Pandas</code> is the <code>DataFrame</code> object, which holds rectangular collections of data (rows and columns - think of an Excel spreadsheet).  It is a table of data, and <code>Pandas</code> provides a number of methods and objects for manipulating and analyzing this data.</p>
+<p>In this cookbook, we focus on providing recipes for the following common <code>pandas</code> tasks:</p>
+<ol>
+<li>Reading and writing data from a CSV or Excel file.</li>
+<li>Creating a Pandas dataframe from data</li>
+<li>Extracting rows, columns of data from a Dataframe</li>
+<li>Filtering Datasets with a Query</li>
+<li>Sorting Data in a Dataframe</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reading/writing-data-from/to-a-file">Reading/writing data from/to a file<a class="anchor-link" href="#Reading/writing-data-from/to-a-file"> </a></h2><p>Pandas provides a set of high-level functions for reading and writing data files in several common formats, perhaps most helpfully, CSV (comma-separated values) and Microsoft Excel files.  In all of the cases below, data is read into a <code>DataFrame</code> object, rows and columns of data, including labels.  The <code>DataFrame</code> object exposes a number of methods we will take advange of below, but let's start with getting a <code>DataFrame</code> filled with data from a file.</p>
+<p>The <code>read_csv</code> and <code>read_excel</code> functions used below have many additional options - see the documents at:</p>
+<ul>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html"><code>read_csv()</code>documentation</a></li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html"><code>read_excel()</code>documentation</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># read a local CSV file</span>
+<span class="c1">#df = pd.read_csv( &#39;/somepath/somefile.csv&#39; )</span>
+
+<span class="c1"># read from a web url</span>
+<span class="c1">#df = pd.read_csv( &quot;http://somewhere.com/somedataset.csv&quot;)</span>
+
+<span class="c1"># some options - change field delimiter</span>
+<span class="c1">#              - skip top two rows before reading header, data</span>
+<span class="c1">#              - only get columns 0, 3 and 4</span>
+<span class="c1">#df = pd.read_csv( &#39;/somepath/somefile.txt&#39;, sep=&#39; &#39;, skiprows=2, usecols=(0,3,4))</span>
+
+<span class="c1"># some more options - interpret&#39;Date&quot; field as &#39;date&#39; type</span>
+<span class="c1">#              - tell it that our dates have the date first instead of the month first</span>
+<span class="c1">#              - set the index to be the &#39;Date&#39; column</span>
+<span class="c1">#df = pd.read_csv( &#39;/somepath/somefile.txt&#39;, parse_dates=[&#39;Date&#39;], dayfirst=True, index_col=&#39;Date&#39; )</span>
+
+<span class="c1"># using excel instead csv/text file</span>
+<span class="c1">#df = pd.read_excel( &#39;/somepath/somefile.xlsx&#39;)   # all the option above apply here as well</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span> <span class="s2">&quot;http://explorer.bee.oregonstate.edu/Topic/Modeling/data/PandasExample.xlsx&quot;</span><span class="p">)</span>   <span class="c1"># from a web address</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># ---- Saving data ----</span>
+
+<span class="c1"># save as CSV (see docs for options)</span>
+<span class="c1">#df.to_csv(&#39;somefile.csv&#39;)</span>
+
+<span class="c1"># save as Excel (see docs for options)</span>
+<span class="c1">#df.to_excel(&#39;somefile.xlsx&#39;)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   StationID       Date  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+0   14166000 2000-10-05   44.2704  236.82629                 6480       11.71220             14.4
+1   14166000 2000-10-06   44.2704  236.82629                 6390        9.79153             14.6
+2   14166000 2000-10-07   44.2704  236.82629                 6450        9.85095             14.7
+3   14166000 2000-10-08   44.2704  236.82629                 6430       11.53120             14.6
+4   14166000 2000-10-09   44.2704  236.82629                 6630       12.19230             14.6
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Creating-a-DataFrame-from-arrays-of-data">Creating a <code>DataFrame</code> from arrays of data<a class="anchor-link" href="#Creating-a-DataFrame-from-arrays-of-data"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2010</span><span class="p">,</span><span class="mi">2011</span><span class="p">,</span><span class="mi">2012</span><span class="p">,</span><span class="mi">2013</span><span class="p">,</span><span class="mi">2014</span><span class="p">]</span>
+<span class="n">fireArea</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.455</span><span class="p">,</span><span class="mf">2.433</span><span class="p">,</span><span class="mf">1.665</span><span class="p">,</span><span class="mf">4.344</span><span class="p">,</span><span class="mf">5.1243</span><span class="p">]</span>
+
+<span class="c1"># merge the two lists into pairs of data</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">years</span><span class="p">,</span><span class="n">fireArea</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zipped list: &#39;</span><span class="p">,</span> <span class="n">dataset</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Years&#39;</span><span class="p">,</span><span class="s1">&#39;Fire Area&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">DataFrame:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="c1"># save as a csv file.  See docs for options </span>
+<span class="c1">#df.to_csv(&#39;somefilename.csv&#39;)  </span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Zipped list:  [(2010, 1.455), (2011, 2.433), (2012, 1.665), (2013, 4.344), (2014, 5.1243)]
+
+DataFrame:
+   Years  Fire Area
+0   2010     1.4550
+1   2011     2.4330
+2   2012     1.6650
+3   2013     4.3440
+4   2014     5.1243
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Getting-Columns-of-Data-from-a-DataFrame">Getting Columns of Data from a <code>DataFrame</code><a class="anchor-link" href="#Getting-Columns-of-Data-from-a-DataFrame"> </a></h2><p>We can extract a column of data from a dataframe using the column label as a dictionary key (using bracket ([]) notation, returning a column of data (along with an index, of one exists for the <code>DataFrame</code>). The data is return into a pandas <code>Series</code> object, which is basically a wrapper around a numpy <code>array</code>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># get some data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span> <span class="s2">&quot;http://explorer.bee.oregonstate.edu/Topic/Modeling/data/PandasExample.xlsx&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>   <span class="c1"># from a web address</span>
+
+<span class="n">stationIDs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;StationID&#39;</span><span class="p">]</span>
+<span class="n">discharges</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;StreamDischarge_cfs&#39;</span><span class="p">]</span>
+
+<span class="c1"># get the underlying numpy array</span>
+<span class="n">d_array</span> <span class="o">=</span> <span class="n">discharges</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># we can also plot the data!  Note that the x axis takes advantage of the index we specified above.</span>
+<span class="n">discharges</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fb23e4114e0&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/Tools/Python-Basics/3-Pandas-Cookbook_6_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Examining-DataFrame-objects-and-extracting-rows,-columns-of-data">Examining <code>DataFrame</code> objects and extracting rows, columns of data<a class="anchor-link" href="#Examining-DataFrame-objects-and-extracting-rows,-columns-of-data"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># get some data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span> <span class="s2">&quot;http://explorer.bee.oregonstate.edu/Topic/Modeling/data/PandasExample.xlsx&quot;</span><span class="p">,</span>
+                   <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>   <span class="c1"># from a web address</span>
+
+<span class="c1"># print column names</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Column names&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># print the first few rows (using slicing)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">First few rows&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">df</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span> <span class="p">)</span>
+
+<span class="c1"># print first few rows of a given column </span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">First few rows of &quot;StationID&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;StationID&#39;</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span> <span class="p">)</span>
+
+<span class="c1"># get multiple columns.  NOTE the columns names are in a list inside the indexer []s</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Multiple columns&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;StationID&#39;</span><span class="p">,</span><span class="s1">&#39;StreamDischarge_cfs&#39;</span><span class="p">]][:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span> <span class="p">)</span>
+
+<span class="c1"># and a bar chart!</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;StreamDischarge_cfs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Column names
+Index([&#39;StationID&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;, &#39;StreamDischarge_cfs&#39;,
+       &#39;MeanAirTemp_C&#39;, &#39;MaxStreamTemp_C&#39;],
+      dtype=&#39;object&#39;)
+
+First few rows
+            StationID  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+Date                                                                                           
+2000-10-05   14166000   44.2704  236.82629                 6480       11.71220             14.4
+2000-10-06   14166000   44.2704  236.82629                 6390        9.79153             14.6
+2000-10-07   14166000   44.2704  236.82629                 6450        9.85095             14.7
+
+First few rows of &#34;StationID&#34;
+Date
+2000-10-05    14166000
+2000-10-06    14166000
+2000-10-07    14166000
+
+Multiple columns
+            StationID  StreamDischarge_cfs
+Date                                      
+2000-10-05   14166000                 6480
+2000-10-06   14166000                 6390
+2000-10-07   14166000                 6450
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f69c8a275f8&gt;</pre>
+</div>
+
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../images/Tools/Python-Basics/3-Pandas-Cookbook_8_2.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Filtering-rows-in-a-Dataframe-(using-.query())">Filtering rows in a Dataframe (using <code>.query()</code>)<a class="anchor-link" href="#Filtering-rows-in-a-Dataframe-(using-.query())"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># get some data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span> <span class="s2">&quot;http://explorer.bee.oregonstate.edu/Topic/Modeling/data/PandasExample.xlsx&quot;</span><span class="p">,</span>
+                   <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>   <span class="c1"># from a web address</span>
+
+<span class="c1"># print the full dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">-- Full DataFrame  ------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="c1"># filter to only queries that have MeanAirTemps greater than 10C</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">-- Filtered (MeanAirTemp&gt;10) --------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MeanAirTemp_C &gt; 10&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+               
+<span class="c1"># the next example show &quot;chained&quot; query statements</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">-- Filtered (MeanAirTemp&gt;10 and MaxStreamTemp&gt;14.5) ---</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MeanAirTemp_C &gt; 10&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MaxStreamTemp_C &gt; 14.5&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">df1</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="c1"># the next example shows usage of pandas boolean operators in the query string  </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">-- Filtered (MeanAirTemp&gt;10 and MaxStreamTemp&lt;14.5) ---</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;MeanAirTemp_C &gt; 10 &amp; MaxStreamTemp_C &lt; 14.5&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+
+-- Full DataFrame  ------------------------------------
+
+            StationID  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+Date                                                                                           
+2000-10-05   14166000   44.2704  236.82629                 6480       11.71220             14.4
+2000-10-06   14166000   44.2704  236.82629                 6390        9.79153             14.6
+2000-10-07   14166000   44.2704  236.82629                 6450        9.85095             14.7
+2000-10-08   14166000   44.2704  236.82629                 6430       11.53120             14.6
+2000-10-09   14166000   44.2704  236.82629                 6630       12.19230             14.6
+
+
+-- Filtered (MeanAirTemp&gt;10) --------------------------
+
+            StationID  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+Date                                                                                           
+2000-10-05   14166000   44.2704  236.82629                 6480        11.7122             14.4
+2000-10-08   14166000   44.2704  236.82629                 6430        11.5312             14.6
+2000-10-09   14166000   44.2704  236.82629                 6630        12.1923             14.6
+
+
+-- Filtered (MeanAirTemp&gt;10 and MaxStreamTemp&gt;14.5) ---
+
+            StationID  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+Date                                                                                           
+2000-10-08   14166000   44.2704  236.82629                 6430        11.5312             14.6
+2000-10-09   14166000   44.2704  236.82629                 6630        12.1923             14.6
+
+
+-- Filtered (MeanAirTemp&gt;10 and MaxStreamTemp&lt;14.5) ---
+
+            StationID  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+Date                                                                                           
+2000-10-05   14166000   44.2704  236.82629                 6480        11.7122             14.4
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sorting-Dataframes-(using-.sort())">Sorting Dataframes (using <code>.sort()</code>)<a class="anchor-link" href="#Sorting-Dataframes-(using-.sort())"> </a></h2>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># get some data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span> <span class="s2">&quot;http://explorer.bee.oregonstate.edu/Topic/Modeling/data/PandasExample.xlsx&quot;</span><span class="p">,</span>
+                   <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>   <span class="c1"># from a web address</span>
+
+<span class="c1"># print the full dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">-- Full DataFrame  ------------------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="c1"># sort based on stream discharge</span>
+<span class="n">dfSorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;StreamDischarge_cfs&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">-- Sorted by Stream Discharge --------------------------</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfSorted</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+
+-- Full DataFrame  ------------------------------------
+
+            StationID  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+Date                                                                                           
+2000-10-05   14166000   44.2704  236.82629                 6480       11.71220             14.4
+2000-10-06   14166000   44.2704  236.82629                 6390        9.79153             14.6
+2000-10-07   14166000   44.2704  236.82629                 6450        9.85095             14.7
+2000-10-08   14166000   44.2704  236.82629                 6430       11.53120             14.6
+2000-10-09   14166000   44.2704  236.82629                 6630       12.19230             14.6
+
+
+-- Sorted by Stream Discharge --------------------------
+
+            StationID  Latitude  Longitude  StreamDischarge_cfs  MeanAirTemp_C  MaxStreamTemp_C
+Date                                                                                           
+2000-10-06   14166000   44.2704  236.82629                 6390        9.79153             14.6
+2000-10-08   14166000   44.2704  236.82629                 6430       11.53120             14.6
+2000-10-07   14166000   44.2704  236.82629                 6450        9.85095             14.7
+2000-10-05   14166000   44.2704  236.82629                 6480       11.71220             14.4
+2000-10-09   14166000   44.2704  236.82629                 6630       12.19230             14.6
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+ 
+
+
+    </main>
+    

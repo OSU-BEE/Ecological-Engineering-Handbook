@@ -96,15 +96,15 @@
       non_numbered: true
 
     - title: Collections, Numpy and Slicing
-      url: /Tools/2-Collections-Numpy-Slicing
+      url: /Tools/Python-Basics/2-Collections-Numpy-Slicing
       not_numbered: true
   
     - title: Pandas
-      url: /Tools/3-Pandas-Cookbook
+      url: /Tools/Python-Basics/3-Pandas-Cookbook
       not_numbered: true
 
     - title: Matplotlib Cookbook
-      url: /Tools/4-Matplotlib-Cookbook
+      url: /Tools/Python-Basics/4-Matplotlib-Cookbook
       not_numbered: true
 
   - title: Basic Data Analysis Techniques

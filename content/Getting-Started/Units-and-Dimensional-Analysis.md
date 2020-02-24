@@ -45,7 +45,12 @@ https://www.unitconverters.net/.
 
 ## Additional Information:
 
-Some useful links addressing dimensional analysis:
+Some useful links addressing dimensional analysis are provided below.
+
+Khan Academy:
+https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:working-units/x2f8bb11595b61c86:rate-conversion/v/dimensional-analysis-units-algebraically.
+
+
 
 
 ```python

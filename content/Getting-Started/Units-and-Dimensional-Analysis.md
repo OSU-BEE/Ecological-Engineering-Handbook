@@ -15,6 +15,16 @@ However, not all quantities require a unit of their own. Using physical laws, un
 
 Different systems of units are based on different choices of base units. The most widely used system of units is the International System of Units, or SI.  We will use SI units throughout this book. There are seven SI base units, and all other SI units can be derived from these base units.
 
+The seven base SI units are:
+
+- Length: m (meter)
+- Mass: kg (kilogram)
+- Time: s (second)
+- Electric Current: A (Ampere)
+- Thermodynamic Temperature: K (degrees Kelvin)
+- Amount of Substance: mol ( mole )
+- Luminous Intensity: cd (candela)
+
 
 ```python
 

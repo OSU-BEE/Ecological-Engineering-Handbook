@@ -49,9 +49,6 @@ https://www.unitconverters.net/
 
 Some useful links addressing dimensional analysis:
 
-Khan Academy: https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:working-units/x2f8bb11595b61c86:rate-conversion/v/dimensional-analysis-units-algebraically.
-
-
 
 
 <!-- #endregion -->

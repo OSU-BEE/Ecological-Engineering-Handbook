@@ -42,10 +42,6 @@ Wikipedia provides a usefull summary of conversion factors for many units at:
 https://en.wikipedia.org/wiki/Conversion_of_units.
 
 
-
-
-## Additional Information
-
 done.
 
 <!-- #endregion -->

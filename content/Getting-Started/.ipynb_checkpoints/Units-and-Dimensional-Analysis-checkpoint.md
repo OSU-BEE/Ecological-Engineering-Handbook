@@ -39,10 +39,6 @@ Derived units are based on units from the SI system of units. For example, volum
 
 ## Common Conversion Factors
 
-Wikipedia provides a useful summary of conversion factors for many units at their
-[Units Conversion](https://en.wikipedia.org/wiki/Conversion_of_units) page.
-
-An online unit conversion factor calculator is available at: 
 
 <!-- #endregion -->
 

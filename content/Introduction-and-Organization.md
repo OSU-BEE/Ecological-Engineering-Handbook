@@ -15,5 +15,19 @@ This section introduces some basic concepts around engineering design, including
 - Elements of and Engineering Report
 - An Example Engineering Report
 
+### Concepts
+This section focuses on the theory and application of ecological principles in engineering design in a variety of application domains in Ecological Engineering:
+- Water Resources Engineering
+- Geospatial Analysis and Modeling
+- Bioprocess Engineering and Resource Recovery
+- Ecosystem Restoration Engineering
+- Agricultural Systems Engineering
+- General Ecological Engineering
 
+### Tools
+This section introduces hands-on tools for ecological engineering design and analysis focusing on the Python programming language,including basics of Python programming, data management techniques, data analysis and modeling, and geospatial analysis:
+- Basics of Python Programming
+- Data Management
+- Data Analysis, including basics of regression, forecasting, mechanistic modeling, and stochastic modeling
+- Geospatial Analysis
 

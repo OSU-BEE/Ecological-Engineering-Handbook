@@ -1,5 +1,6 @@
 <!-- #region -->
 # Units and Dimensional Analysis
+
 *content under development*
 
 
@@ -19,46 +20,8 @@ However, not all quantities require a unit of their own. Using physical laws, un
 
 Different systems of units are based on different choices of base units. The most widely used system of units is the International System of Units, or SI. There are seven SI base units, and all other SI units can be derived from these base units.
 
-The seven base SI units are:
-
-    Length: m (meter)
-    Mass: kg (kilogram)
-    Time: s (second)
-    Electric Current: A (Ampere)
-    Thermodynamic Temperature: K (degrees Kelvin)
-    Amount of Substance: mol ( mole )
-    Luminous Intensity: cd (candela)
-
-The base units of SI are actually not the smallest set possible; smaller sets have been defined. For example, there are unit sets in which the electric and magnetic field have the same unit. This is based on physical laws that show that electric and magnetic fields are actually different manifestations of the same phenomenon.
-
-Derived units are based on units from the SI system of units. For example, volume is a derived unit because volume is based on length. To calculate the volume of something, you multiply the width x length x height, all in meters. Therefore, the derived unit for volume is m3. Here is a list of some commonly derived units:
-
-    Area: m2
-    Volume: m3
-    Velocity: m/s
-    Acceleration: m/s2
-    Density: g/mL or g/cm3
-    Force: kg⋅m/s2,OR the Newton (N)
-    Energy: N⋅m, OR the Joule (J)
-
-
-
-## Common Conversion Factors
-
-Wikipedia provides a usefull summary of conversion factors for many units at https://en.wikipedia.org/wiki/Conversion_of_units.
-
-An online unit conversion factor calculator is available at: https://www.unitconverters.net/
-
-
-
-## Additional Information
-
-Some useful links addressing dimensional analysis:
-
-
-Khan Academy: https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:working-units/x2f8bb11595b61c86:rate-conversion/v/dimensional-analysis-units-algebraically
-
-Greg Schwanbecks "How to Convert Units - Unit Conversion Made Easy" video:
-[![](http://img.youtube.com/vi/XKCZn5MLKvk/0.jpg)](http://www.youtube.com/watch?v=XKCZn5MLKvk "Unit Conversion")
-
 <!-- #endregion -->
+
+```python
+
+```

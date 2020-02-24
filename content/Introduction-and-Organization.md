@@ -47,7 +47,3 @@ This section provides a set of strategies for addressing a variety of common eco
 
 
 <!-- #endregion -->
-
-```python
-
-```

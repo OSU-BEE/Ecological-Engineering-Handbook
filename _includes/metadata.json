@@ -8,11 +8,11 @@
   "description": "{{ page.content | strip_html | strip_newlines | truncate: 160 }}",
   "author": {
     "@type": "Person",
-    "name": "{{ site.author }}"
+    "name": "{{ John Bolte }}"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Data 100 at UC Berkeley",
+    "name": "Dept. of Biological & Ecological Engineering, Oregon State University",
     "logo": {
       "@type": "ImageObject",
       "url": "{{ site.logo | prepend: site.baseurl | prepend: site.url }}",

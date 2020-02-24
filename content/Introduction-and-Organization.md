@@ -2,7 +2,18 @@ This collection of Jupyter Notebooks describe a wide range of problems encounter
 
 Example problem solutions are general performed with short Python programs.  We use Python because it is a simple language to understand and learn, Python syntax is cleans, simple, and benefits from availability of wide variety of supporting libraries providing advanced functionality for data handling, data analysis, and engineering computation. Topics are presented through a series of Jupyter Notebooks, which allow interspersing formatted text with Python code and Python-generated output.
 
-# test
+## Topics
+
+This handbook is divided into four primary sections, as follows:
+
+### Getting Started
+This section introduces some basic concepts around engineering design, including:
+
+- Principles of design
+- Units and Dimensional Analysis
+- Critical Thinking Skills
+- Elements of and Engineering Report
+- An Example Engineering Report
 
 
 

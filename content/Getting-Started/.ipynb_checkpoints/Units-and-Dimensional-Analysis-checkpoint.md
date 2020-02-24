@@ -46,21 +46,13 @@ Derived units are based on units from the SI system of units. For example, volum
 
 Some useful links addressing dimensional analysis:
 
-https://www.youtube.com/watch?v=XKCZn5MLKvk
-
 
 Khan Academy: https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:working-units/x2f8bb11595b61c86:rate-conversion/v/dimensional-analysis-units-algebraically
 
-
-
-
+Greg Schwanbecks "How to Convert Units - Unit Conversion Made Easy" video:
+[![](http://img.youtube.com/vi/XKCZn5MLKvk/0.jpg)](http://www.youtube.com/watch?v=XKCZn5MLKvk "Unit Conversion")
 
 <!-- #endregion -->
-
-```python
-from IPython.display import YouTubeVideo
-YouTubeVideo('x4dNIfx6HVs')
-```
 
 ```python
 

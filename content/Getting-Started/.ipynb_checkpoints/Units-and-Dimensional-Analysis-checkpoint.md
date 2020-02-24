@@ -1,4 +1,3 @@
-<!-- #region -->
 *content under development*
 
 **Dimensional Analysis** is an key engineering technique for insuring that units used in an equation are appropriate and consistent for a given problem. Some important points regarding dimenstional analysis are:
@@ -35,12 +34,6 @@ Derived units are based on units from the SI system of units. For example, volum
 - Density: g/mL or g/cm3
 - Force: kg⋅m/s2,OR the Newton (N)
 - Energy: N⋅m, OR the Joule (J)
-
-
-## Common Conversion Factors
-
-
-<!-- #endregion -->
 
 ```python
 

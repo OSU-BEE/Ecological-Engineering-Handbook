@@ -1,4 +1,3 @@
-<!-- #region -->
 *content under development*
 
 **Dimensional Analysis** is an key engineering technique for insuring that units used in an equation are appropriate and consistent for a given problem. Some important points regarding dimenstional analysis are:
@@ -42,16 +41,8 @@ Wikipedia provides a useful summary of conversion factors for many units at:
 https://en.wikipedia.org/wiki/Conversion_of_units.
 
 An online unit conversion factor calculator is available at:
-https://www.unitconverters.net/
+https://www.unitconverters.net/.
 
-
-## Additional Information
-
-Some useful links addressing dimensional analysis:
-
-
-
-<!-- #endregion -->
 
 ```python
 

@@ -1,3 +1,4 @@
+<!-- #region -->
 *content under development*
 
 **Dimensional Analysis** is an key engineering technique for insuring that units used in an equation are appropriate and consistent for a given problem. Some important points regarding dimenstional analysis are:
@@ -27,6 +28,24 @@ The seven base SI units are:
 
 Derived units are based on units from the SI system of units. For example, volume is a derived unit because volume is based on length. To calculate the volume of something, you multiply the width x length x height, all in meters. Therefore, the derived unit for volume is m3. Here is a list of some commonly derived units:
 
+- Area: m2
+- Volume: m3
+- Velocity: m/s
+- Acceleration: m/s2
+- Density: g/mL or g/cm3
+- Force: kg⋅m/s2,OR the Newton (N)
+- Energy: N⋅m, OR the Joule (J)
+
+
+
+## Common Conversion Factors
+
+Wikipedia provides a usefull summary of conversion factors for many units at https://en.wikipedia.org/wiki/Conversion_of_units.
+
+An online unit conversion factor calculator is available at: https://www.unitconverters.net/
+
+
+<!-- #endregion -->
 
 ```python
 

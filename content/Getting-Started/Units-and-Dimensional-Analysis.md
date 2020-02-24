@@ -43,6 +43,10 @@ https://en.wikipedia.org/wiki/Conversion_of_units.
 An online unit conversion factor calculator is available at:
 https://www.unitconverters.net/.
 
+## Additional Information:
+
+Some useful links addressing dimensional analysis:
+
 
 ```python
 

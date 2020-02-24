@@ -11,13 +11,7 @@
 
 ## Base and Derived Units
 
-For most quantities, a unit is absolutely necessary to communicate values of that physical quantity. Imagine you need to buy some rope to tie something onto the roof of a car. How would you tell the salesperson how much rope you need without using some unit of measurement?
 
-However, not all quantities require a unit of their own. Using physical laws, units of quantities can be expressed as combinations of units of other quantities. Therefore, only a small set of units is required. These units are called base units, and other units are derived units. Derived units are a matter of convenience, as they can be expressed in terms of basic units.
-
-Different systems of units are based on different choices of base units. The most widely used system of units is the International System of Units, or SI. There are seven SI base units, and all other SI units can be derived from these base units.
-
-The seven base SI units are:
 <!-- #endregion -->
 
 ```python

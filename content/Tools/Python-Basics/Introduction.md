@@ -2,7 +2,7 @@
 
 *content in process*
 
-In this section, we introduce the Python programming language, focusing on understanding basic syntax, packages (libraries) of use in ecological engineering analyses, including reading/writing data, manipulating data, data visualization and numerical analysis and optimization. We only touch on the basics, as there are numerous Python tutorials on the web (see the links at the bottom of this page), and instead focus on tasks frequently encountered in engineering analyses.
+In this section, we introduce the Python programming language, focusing on understanding basic syntax, packages (libraries) of use in ecological engineering analyses, including reading/writing data, manipulating data, data visualization and numerical analysis and optimization. We only touch on the basics, as there are numerous Python tutorials on the web (see the links at the bottom of this page), and instead focus on tasks frequently encountered in engineering analyses.  We also provide a number of example notebooks showing code usage in practice.
 
 
 ## Python Topics

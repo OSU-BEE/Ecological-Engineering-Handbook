@@ -4,7 +4,7 @@ Example problem solutions are general performed with short Python programs.  We 
 
 ## Topics
 
-This handbook is divided into four primary sections, as follows:
+This handbook is divided into four primary sections, as outlined below.  Navigation to these sections is accomplished using the menu on the left of the screen.
 
 ### Getting Started
 This section introduces some basic concepts around engineering design, including:
@@ -31,3 +31,11 @@ This section introduces hands-on tools for ecological engineering design and ana
 - Data Analysis, including basics of regression, forecasting, mechanistic modeling, and stochastic modeling
 - Geospatial Analysis
 
+### Design Cookbook
+This section provides a set of strategies for addressing a variety of common ecological engineering design problems.
+- Water Resources Engineering
+- Geospatial Analysis and Modeling
+- Bioprocess Engineering and Resource Recovery
+- Ecosystem Restoration Engineering
+- Agricultural Systems Engineering
+- General Ecological Engineering

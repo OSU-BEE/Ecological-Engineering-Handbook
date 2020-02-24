@@ -119,7 +119,7 @@
     url: /Tools/Geospatial-Analysis-and-Modeling/Introduction
     not_numbered: true
 
-- title: Design Cookbook Catalog
+- title: Design Cookbook
   url: /Cookbook/Catalog
   not_numbered: true
   sections:
@@ -132,6 +132,6 @@
   external: true
   not_numbered: true
 
-- title: Interested in Contributing?
+- title: Want to Contribute?
   url: /contributing
   not_numbered: true

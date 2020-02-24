@@ -10,7 +10,3 @@
 3. Unit analysis help detemine approporiate conversion factors when using different units to describe an entity of phenomena.
 
 <!-- #endregion -->
-
-```python
-
-```

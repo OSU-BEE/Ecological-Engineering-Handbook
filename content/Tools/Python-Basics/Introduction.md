@@ -13,7 +13,6 @@ In this section, we introduce the Python programming language, focusing on under
 <td><a href="0-Anatomy-of-a-Program.html">Anatomy of a Python Program</a></td>
 <td><ul><li>Basic ideas of Programming in Python</li></ul></td>
 <td></td>
-<td></td>
 </tr>
 
 <tr>

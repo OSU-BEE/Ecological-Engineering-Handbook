@@ -13,7 +13,3 @@ We start this section with a discussion of the principles of ecological engineer
 - Engineering Report Examples
 - Engineering Report Template
 
-
-```python
-
-```

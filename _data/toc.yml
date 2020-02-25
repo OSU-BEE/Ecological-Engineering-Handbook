@@ -16,8 +16,6 @@
 # - divider: true  # Will insert a divider in the sidebar
 # - header: My Header  # Will insert a header with no link in the sidebar
 
-- header: testheader
-
 - title: Organization
   url: /Introduction-and-Organization
   not_numbered: true

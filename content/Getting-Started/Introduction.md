@@ -1,4 +1,3 @@
-<!-- #region -->
 ## Elements of Design for Ecological Engineering
 
 *content under development*
@@ -9,22 +8,11 @@ We start this section with a discussion of the principles of ecological engineer
 
 - Principles of Design
 - Units and Dimensional Analysis 
+- Critical Thinking Skills
+- Elements of an Engineering Report
+- Engineering Report Examples
+- Engineering Report Template
 
-
-### Principles of Design
-
-### Units and Dimensional Analysis
-
-### Critical Thinking Skills
-
-### Elements of an Engineering Report
-
-### Engineering Report Examples
-
-### Engineering Report Template
-
-
-<!-- #endregion -->
 
 ```python
 

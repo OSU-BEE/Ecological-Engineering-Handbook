@@ -16,6 +16,25 @@
 # - divider: true  # Will insert a divider in the sidebar
 # - header: My Header  # Will insert a header with no link in the sidebar
 
+- title: Design Cookbook
+  url: /Cookbook/Catalog
+  not_numbered: true
+  sections:
+  - title: Culvert Design
+    url: /Cookbook/Culvert-Design
+    not_numbered: true
+
+- divider: true
+
+- url: https://github.com/OSU-BEE/Ecological-Engineering-Handbook
+  title: GitHub Site
+  external: true
+  not_numbered: true
+
+- title: Want to Contribute?
+  url: /contributing
+  not_numbered: true
+
 - title: Organization
   url: /Introduction-and-Organization
   not_numbered: true
@@ -118,21 +137,3 @@
     url: /Tools/Geospatial-Analysis-and-Modeling/Introduction
     not_numbered: true
 
-- title: Design Cookbook
-  url: /Cookbook/Catalog
-  not_numbered: true
-  sections:
-  - title: Culvert Design
-    url: /Cookbook/Culvert-Design
-    not_numbered: true
-
-- divider: true
-
-- url: https://github.com/OSU-BEE/Ecological-Engineering-Handbook
-  title: GitHub Site
-  external: true
-  not_numbered: true
-
-- title: Want to Contribute?
-  url: /contributing
-  not_numbered: true

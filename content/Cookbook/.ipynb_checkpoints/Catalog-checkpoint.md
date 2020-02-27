@@ -1,6 +1,6 @@
 # Catalog of Design Patterns
 
-* content under development *
+*content under development*
 
 Below is a listing of Design Patterns for Ecological Engineering presented in ths book.
 

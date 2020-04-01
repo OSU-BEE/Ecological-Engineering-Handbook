@@ -50,7 +50,7 @@ The figure to the right provides a nice general summary of the design process, i
 
 From the first meeting with a client where a problem is defined, until the completion of your design process, you will be in frequent communication with your client.  Typically, this takes the form of a series of meetings/design charrettes and engineering memos and reports that provide clients with updates, review alternatives and get feedback and direction as the project proceeds.   
 
-1.	Engineering Memos are generally brief (1-2 pages) and provide summaries of information and request for information from the client.  
+1.	Engineering Memos are generally brief (1-2 pages) and provide summaries of information and request for information from the client. Follow <a href='Engineering-Memos.html'>this link</a> for information on the structure of a typical engineering memo.  An example engineering memo <a href='ExEngMemo.pdf'>is available here</a>
 2.	Engineer Reports as more in-depth documents generally addressing more technical aspects of a design.
 
 Below we describe and provide examples of engineering memos and reports to help you get started, including the following:
@@ -72,7 +72,7 @@ The Problem Definition memo defines the design problem and summarizes background
 4.	A request for additional information/feedback if needed
 
 <span style="text-decoration: underline">Example Problem Definition Memos:</span>
--<a href='ExProbDefinitionMemo.pdf'>Example Needed!</a> 
+- <a href='ExProbDefinitionMemo.pdf'>Example Needed!</a> 
 
 #### Requirements Memo
 
@@ -84,7 +84,7 @@ This memo specifies the requirements and specifications for the design problem. 
 4.	A request for additional information/feedback if needed
 
 <span style="text-decoration: underline">Example Requirements Memos:</span>
--<a href='ExRequirements.pdf'>Example Needed</a> 
+- <a href='ExRequirements.pdf'>Example Needed</a> 
 
 
 #### Alternatives and Feasibility Memo/Report
@@ -117,8 +117,8 @@ The Preliminary Design memo focuses on the preferred design alternative, and pre
 2.	A presentation of the preferred design alternative, including a rationale and identifying any potential issues the alternative may present
 3.	A brief summary of the engineering analysis used in the evaluation.  This should discuss methods and include relevant maps, photographs, and similar background data.
 
-<span style="text-decoration: underline">Example Preliminary Design Memos:/span>
--<a href='ExPrelimDesign.pdf'>Example Needed!</a> 
+<span style="text-decoration: underline">Example Preliminary Design Memos:</span>
+- <a href='ExPrelimDesign.pdf'>Example Needed!</a> 
 
 
 #### Final Report and Design Documents

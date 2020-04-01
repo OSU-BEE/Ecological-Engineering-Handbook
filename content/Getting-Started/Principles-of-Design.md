@@ -5,13 +5,14 @@ Authors: John Bolte<sup>1</sup> Gerrad Jones<sup>1</sup>, Desiree Tullos<sup>1</
 
 <sup>1</sup>Biological & Ecological Engineering Department, Oregon State University
 <hr/>
-[<a href='#DesignProcessSteps'>Design Process - Steps]</a>&nbsp;&nbsp;&nbsp;
+[<a href='#DesignProcessSteps'>Steps in the Design Process]</a>&nbsp;&nbsp;&nbsp;
 [<a href='#Communication'>Communication and Documentation</a>]
 
 
 ## Fundamentals of Engineering Design
 
 Design is fundamental to the practice of ecological engineering.  Below, we provide some guidance on approaching design problems in ecological engineering, including a brief discussion of design process, a stepwise flowchart to identify key steps in the process, and guidelines for documentation produced at various steps in the process.  
+
 Design is a creative process that identifies problems and constraints, develops solutions to overcome those constraints and address the problem in a cost-effective way.  These solutions should not only work, they must meet the needs of the client, be based on accepted engineering analyses and methods, consider economic, social, and ethical dimensions of the design, and be communicated to the client in an effective manner.
 
 Ecological engineering designs often incorporate additional constraints related to sustainability, system resilience, and need to provide a variety of ecosystem services, the geospatial nature of many ecological engineering problems, and the intrinsic complexity and variability associated with ecological systems.
@@ -27,7 +28,7 @@ The figure to the right provides a nice general summary of the design process, i
 
 1. **Define the Problem.** Clearly state the problem and begin to identify various physical, ecological, economic, legal, social, and ethical constraints.  Research the problem and identify appropriate engineering techniques to analyze possible solutions.  Take a look at other solutions to the problem (or similar challenges) and analyze why they work – or don’t work. Your goal is not to copy others’ work, but to try out different perspectives and gather information on a problem.<br/><br/>
 
-2. **Identify Needs and Constraints.** Specify the requirements of the design as well as any constraints identified above.  Clearly state the assumptions that you are using to simplify the calculations you are using to generate your design (e.g., this design assumes steady state conditions). Establish basic cost guidelines (time and materials).  Understand legal requirements including permitting and other regulatory processes.  Work with the client to understand their goals and constraints.  Identify needs related to provision of ecosystem services.<<br/><br/>
+2. **Identify Needs and Constraints.** Specify the requirements of the design as well as any constraints identified above.  Clearly state the assumptions that you are using to simplify the calculations you are using to generate your design (e.g., this design assumes steady state conditions). Establish basic cost guidelines (time and materials).  Understand legal requirements including permitting and other regulatory processes.  Work with the client to understand their goals and constraints.  Identify needs related to provision of ecosystem services.<br/><br/>
 
 3. **Brainstorm.** Come up with possible ideas and solutions to the design challenge. Encourage creative, informed exploration of possible solutions, without getting excessively bogged down in detail.  Use drawings, sketches, or computer visualizations to help inform the process where appropriate. At the end of the session, pick a few (generally 3-5) alternatives that satisfy all the requirements and appear to be the best options for further analysis.<br/><br/>
 
@@ -138,6 +139,3 @@ The Final Report Is provided after all engineering design is completed.  It summ
 
 <!-- #endregion -->
 
-```python
-
-```

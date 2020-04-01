@@ -1,4 +1,3 @@
-<!-- #region -->
 # Design Strategies for Ecological Engineering
 
 Authors: John Bolte<sup>1</sup> Gerrad Jones<sup>1</sup>, Desiree Tullos<sup>1</sup>, John Selker<sup>1</sup>
@@ -9,5 +8,3 @@ Authors: John Bolte<sup>1</sup> Gerrad Jones<sup>1</sup>, Desiree Tullos<sup>1</
 [<a href='#Communication'>Communication and Documentation</a>]
 
 
-## Fundamentals of Engineering Design
-<!-- #endregion -->

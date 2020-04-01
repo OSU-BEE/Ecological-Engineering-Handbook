@@ -4,3 +4,6 @@ Authors: John Bolte<sup>1</sup> Gerrad Jones<sup>1</sup>, Desiree Tullos<sup>1</
 
 <sup>1</sup>Biological & Ecological Engineering Department, Oregon State University
 
+[<a href='#DesignProcessSteps'>Design Process - Steps]</a>&nbsp;&nbsp;&nbsp;
+[<a href='#Communication'>Communication and Documentation</a>]
+

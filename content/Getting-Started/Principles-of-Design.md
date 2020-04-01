@@ -38,14 +38,11 @@ The figure to the right provides a nice general summary of the design process, i
 
 6. **Communicate.**  Document the design process, developing a series of engineering memos and communications with your client at key milestones in the design process, and at the end of the process collecting your results in a Final Report.
 
-<!-- #endregion -->
-
 <a name='DesignProcessSteps'></a>
 # Steps in the Design Process for Ecological Engineering
 
 <img src="EcoE_DesignProcessSteps.png"></img>
 
-<!-- #region -->
 <a name='Communication'></a>
 ## Communicating and Documenting Your Design Process
 
@@ -138,4 +135,3 @@ The Final Report Is provided after all engineering design is completed.  It summ
 - <a href='Examples/StudentSample_Final report.pdf'>Student Sample: Ross Island Lagoon Harmful Algal Bloom Final Report
 
 <!-- #endregion -->
-

@@ -48,3 +48,28 @@ From the first meeting with a client where a problem is defined, until the compl
 1. **Engineering Memos** are generally brief (1-2 pages) and provide summaries of information and request for information from the client. Follow <a href='Engineering-Memos.html'>this link</a> for information on the structure of a typical engineering memo.  An example engineering memo <a href='ExEngMemo.pdf'>is available here</a>
 2. Engineer Reports as more in-depth documents generally addressing more technical aspects of a design.
 
+This is one example of a design process used within Ecological Engineering.  Many variations exist, but all good design processes delineate specific steps in the process and the need to communicate and document the process.  These are general guidelines only; you should adapt these as needed to address specific needs and situations.
+
+#### Problem Definition Memo
+
+The Problem Definition memo defines the design problem and summarizes background information, and may suggest alternatives for consideration.  Some items typically addressed in this memo are provide below:
+
+1.	A concise statement of your understanding of the design problem
+2.	A concise statement of your understanding of the overall project goals
+3.	A brief summary of similar projects that might provide examples of successful (or problematic) design features, legal, regulatory, economic, and social considerations, and other relevant background information.
+4.	A request for additional information/feedback if needed
+
+<span style="text-decoration: underline">Example Problem Definition Memos:</span>
+- <a href='ExProbDefinitionMemo.pdf'>Example Needed!</a> 
+
+#### Requirements Memo
+
+This memo specifies the requirements and specifications for the design problem.  It identifies performance standards the design will need to meet, including legal, regulatory, economic and cultural constraints.  Items typically addressed in this memo are:
+
+1.	Specific need(s) addressed by the design
+2.	Performance standards for the project – what quantitative standards are relevant to the project, and how are they defined
+3.	Legal, regulatory, economic and cultural constraints that will or could impact the project
+4.	A request for additional information/feedback if needed
+
+<span style="text-decoration: underline">Example Requirements Memos:</span>
+- <a href='ExRequirements.pdf'>Example Needed</a> 

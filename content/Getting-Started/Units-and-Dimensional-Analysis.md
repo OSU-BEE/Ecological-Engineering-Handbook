@@ -1,4 +1,4 @@
-*content under development*
+# Units and Dimensional Analysis
 
 **Dimensional Analysis** is an key engineering technique for insuring that units used in an equation are appropriate and consistent for a given problem. Some important points regarding dimenstional analysis are:
 

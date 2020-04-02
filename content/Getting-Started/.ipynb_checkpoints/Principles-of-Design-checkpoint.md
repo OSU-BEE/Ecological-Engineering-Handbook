@@ -4,9 +4,13 @@ Authors: John Bolte<sup>1</sup> Gerrad Jones<sup>1</sup>, Desiree Tullos<sup>1</
 
 <sup>1</sup>Biological & Ecological Engineering Department, Oregon State University
 
-[<a href='#DesignProcessSteps'>Design Process - Steps]</a>&nbsp;&nbsp;&nbsp;
-[<a href='#Communication'>Communication and Documentation</a>]
+<a href='#Fundamentals'>Section 1. Fundamentals</a><br/>
+<a href='#DesignProcessSteps'>Section 2. Design Process - Steps</a><br/>
+<a href='#Communication'>Section 3. Communication and Documentation</a><br/>
+<a href='#TechExample'>Section 4. Examples</a>
+
 <hr></hr>
+<a name='Fundamentals'></a>
 
 ## Fundamentals
 Design is fundamental to the practice of ecological engineering.  Below, we provide some guidance on approaching design problems in ecological engineering, including a brief discussion of design process, a stepwise flowchart to identify key steps in the process, and guidelines for documentation produced at various steps in the process.  

@@ -15,5 +15,9 @@ Design is a creative process that identifies problems and constraints, develops 
 Ecological engineering designs often incorporate additional constraints related to sustainability, system resilience, and need to provide a variety of ecosystem services, the geospatial nature of many ecological engineering problems, and the intrinsic complexity and variability associated with ecological systems.
 
 The figure to the right provides a nice general summary of the design process, identifying important steps and concepts.  Some of the key steps in this generalize design process are:
-
-
+<div style='float:right;text-align:center'>
+    <img src='EcoE-DesignProcess.png' width='60%' style=''></img>
+    <span style='font-size:small'>
+    [from <a href='kqed.org/engineeringforgood'>kqed.org/engineeringforgood </a>]
+    </span>
+</div>

@@ -1,4 +1,3 @@
-<!-- #region -->
 # Design Strategies for Ecological Engineering
 
 Authors: John Bolte<sup>1</sup> Gerrad Jones<sup>1</sup>, Desiree Tullos<sup>1</sup>, John Selker<sup>1</sup>
@@ -10,9 +9,6 @@ Authors: John Bolte<sup>1</sup> Gerrad Jones<sup>1</sup>, Desiree Tullos<sup>1</
 
 Below is a discussion of various aspaect of the design process for ecological Engineering.
 
-## test
-
-
 Design is fundamental to the practice of ecological engineering.  Below, we provide some guidance on approaching design problems in ecological engineering, including a brief discussion of design process, a stepwise flowchart to identify key steps in the process, and guidelines for documentation produced at various steps in the process.  
 Design is a creative process that identifies problems and constraints, develops solutions to overcome those constraints and address the problem in a cost-effective way.  These solutions should not only work, they must meet the needs of the client, be based on accepted engineering analyses and methods, consider economic, social, and ethical dimensions of the design, and be communicated to the client in an effective manner.
 
@@ -23,4 +19,3 @@ The figure to the right provides a nice general summary of the design process, i
 ## testing
 
 123
-<!-- #endregion -->

@@ -48,7 +48,7 @@ The figure below provides a general summary of the design process, identifying i
 From the first meeting with a client where a problem is defined, until the completion of your design process, you will be in frequent communication with your client.  Typically, this takes the form of a series of meetings/design charrettes and engineering memos and reports that provide clients with updates, review alternatives and get feedback and direction as the project proceeds.  
 
 1. **Engineering Memos** are generally brief (1-2 pages) and provide summaries of information and request for information from the client. Follow <a href='Engineering-Memos.html'>this link</a> for information on the structure of a typical engineering memo.  An example engineering memo <a href='ExEngMemo.pdf'>is available here</a>
-2. Engineer Reports as more in-depth documents generally addressing more technical aspects of a design.
+2. **Engineer Reports** are in-depth documents generally addressing more technical aspects of a design.
 
 This is one example of a design process used within Ecological Engineering.  Many variations exist, but all good design processes delineate specific steps in the process and the need to communicate and document the process.  These are general guidelines only; you should adapt these as needed to address specific needs and situations.
 

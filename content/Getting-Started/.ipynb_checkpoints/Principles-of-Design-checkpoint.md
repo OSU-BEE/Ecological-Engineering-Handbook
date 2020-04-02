@@ -37,7 +37,7 @@ The figure to the right provides a nice general summary of the design process, i
 <a name='DesignProcessSteps'></a>
 ## Steps in the Design Process for Ecological Engineering
 
-<img src="EcoE_DesignProcessSteps.png" style="width:100%;max-width:400px"></img>
+<img src="EcoE_DesignProcessSteps.png" style="width:100%;max-width:800px;text-align:center"></img>
 
 
 <a name='Communication'></a>

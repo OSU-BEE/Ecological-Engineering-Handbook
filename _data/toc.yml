@@ -29,6 +29,18 @@
     url: /Getting-Started/Principles-of-Design
     not_numbered: true
 
+  - title: Design Process Steps
+    url: /Getting-Started/Design-Process-Steps
+    not_numbered: true
+
+  - title: Design Communication and Documentation
+    url: /Getting-Started/Design-Communication-and-Documentation
+    not_numbered: true
+
+  - title: Elements of an Engineering Report
+    url: /Getting-Started/Elements-of-an-Engineering-Report
+    not_numbered: true
+
   - title: Units and Dimensional Analysis
     url: /Getting-Started/Units-and-Dimensional-Analysis
     not_numbered: true
@@ -37,9 +49,6 @@
     url: /Getting-Started/Critical-Thinking-Skills
     not_numbered: true
     
-  - title: Elements of an Engineering Report
-    url: /Getting-Started/Elements-of-an-Engineering-Report
-    not_numbered: true
 
   - title: An Example Engineering Report
     url: /Getting-Started/An-Example-Engineering-Report

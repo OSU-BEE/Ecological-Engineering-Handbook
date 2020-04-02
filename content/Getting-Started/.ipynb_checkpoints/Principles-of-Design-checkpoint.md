@@ -32,3 +32,9 @@ The figure to the right provides a nice general summary of the design process, i
 5. **Prototype and Test.** Building a model – either physical or numerical – of your design based on your plans is a vital part of the engineering design process. Start by sketching the process you will use to achieve your design. Lay out each and every step of the process in terms of their sequence, expected time required, testing of the step.  Overall, the design process sketch should include time for testing, peer review, report development, and unanticipated delays. Typically, this will result in a Gantt chart or detailed calendar presentation of the engineering program. Your process will need to evaluate how your design meets the requirements and specifications for the project, including economic constraints and social suitability.  Does it respect relevant regulations and address community values and ownership?<br/><br/>Once you’ve identified your design and test process, develop your prototype and test it out. This step allows you to see potential flaws, opportunities, or challenges that aren’t obvious.  Refine your design to better meet the criteria and constraints. You may have to repeat this step several times, or you may have to go back to previous steps and start over. It is all part of the design process – there is no right or wrong way to go through this procedure.<br></br>
 
 6. **Communicate.**  Document the design process, developing a series of engineering memos and communications with your client at key milestones in the design process, and at the end of the process collecting your results in a Final Report.
+
+
+<a name='DesignProcessSteps'></a>
+# Steps in the Design Process for Ecological Engineering
+
+<img src="EcoE_DesignProcessSteps.png"></img>

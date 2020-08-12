@@ -80,7 +80,7 @@
       not_numbered: true
 
     - title: Hydrologic Processes
-      url: /Concepts/Water-Resources-Engineering/Hydrologic-Processes/IncomingRadiationCalculations.ipynb
+      url: /Concepts/Water-Resources-Engineering/Hydrologic-Processes/IncomingRadiationCalculations
       not_numbered: true
 
     - title: River Engineering

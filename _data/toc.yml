@@ -79,6 +79,10 @@
       url: /Concepts/Water-Resources-Engineering/Hydrologic-Processes/Introduction
       not_numbered: true
 
+    - title: Hydrologic Processes
+      url: /Concepts/Water-Resources-Engineering/Hydrologic-Processes/Incoming%20Radiation%20Calculations.ipynb
+      not_numbered: true
+
     - title: River Engineering
       url: /Concepts/Water-Resources-Engineering/River-Engineering/Introduction
       not_numbered: true

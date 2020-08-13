@@ -16,10 +16,10 @@
 # - divider: true  # Will insert a divider in the sidebar
 # - header: My Header  # Will insert a header with no link in the sidebar
 
-- title: Organization
-  url: /Introduction
-  not_numbered: true
-  search: true
+#- title: Organization
+#  url: /Introduction
+#  not_numbered: true
+#  search: true
 
 - title: Getting Started
   url: /Getting-Started/Introduction
@@ -49,7 +49,6 @@
     url: /Getting-Started/Critical-Thinking-Skills
     not_numbered: true
     
-
   - title: An Example Engineering Report
     url: /Getting-Started/An-Example-Engineering-Report
     not_numbered: true
@@ -126,6 +125,34 @@
   - title: Modeling Techniques
     url: /Tools/Modeling-Techniques/Introduction
     not_numbered: true
+    subsections:
+    - title: Overview
+      url: /Tools/Modeling-Techniques/0-Intro/Introduction-to-Modeling
+      non_numbered: true
+      
+    - title: Empirical Models and Linear Regression
+      url: /Tools/Modeling-Techniques/1-Linear-Regression/Linear-Regression
+      non_numbered: true
+      
+    - title: Nonlinear Regression
+      url: /Tools/Modeling-Techniques/2-Nonlinear-Regression/Nonlinear-Regression
+      non_numbered: true
+      
+    - title: Systems and Mechanistic Models
+      url: /Tools/Modeling-Techniques/3-Mechanistic-Models/Mechaistic-Models
+      non_numbered: true
+      
+    - title: Multidimensional Models
+      url: /Tools/Modeling-Techniques/4-Multidimensional-Models/Multidimensional-Models
+      non_numbered: true
+      
+    - title: Stochastic Models
+      url: /Tools/Modeling-Techniques/5-Stochastic-Models/Stochastic-Models
+      non_numbered: true
+      
+    - title: Model Validation and Testing
+      url: /Tools/Modeling-Techniques/6-Model-Validation-and-Testing/Model-Validation-and-Testing
+      non_numbered: true
 
   - title: Geospatial Analysis and Modeling Techniques
     url: /Tools/Geospatial-Analysis-and-Modeling/Introduction

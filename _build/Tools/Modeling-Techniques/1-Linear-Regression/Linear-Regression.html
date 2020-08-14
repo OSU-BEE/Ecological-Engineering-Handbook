@@ -13,7 +13,7 @@ prev_page:
 next_page:
   url: /Tools/Modeling-Techniques/2-Nonlinear-Regression/Nonlinear-Regression.html
 suffix: .ipynb
-search: linear regression
+search: model data our regression fit observed planting results linear variable line strawberries values empirical using html models equation form parameters observational y example dates corn best case second well value variability very p generally between field date techniques validation testing modeling lets fitting set determine x intercept slope polyfit method numpy available dataset explain problems null does mean any response variables below through year predict simple procedure modeled linregress indicates days percent polynomial additional here nonlinear just estimate explanatory e functional describing crop crops next given function alpha solve beta python package scipy stats follows column assess per decade performed
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -24,7 +24,433 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression"> </a></h1>
+<h1 id="Empirical-Models-and-Linear-Regression">Empirical Models and Linear Regression<a class="anchor-link" href="#Empirical-Models-and-Linear-Regression"> </a></h1><p>Author: John Bolte, Biological &amp; Ecological Engineering Department, Oregon State University</p>
+<hr/>
+
+<h2 id="Empirical-Modeling---What-does-that-mean?">Empirical Modeling - What does that mean?<a class="anchor-link" href="#Empirical-Modeling---What-does-that-mean?"> </a></h2><p>First, let’s review what we mean by an empirical model.   Recall that an empirical model is generally just an equation developed by fitting the equation to a set of data.  We determine the mathematical form of the equation a priori, and then estimate any parameters the equation contains by examining data containing the response variable, the variable being estimated by the model, and any input, or explanatory variables contained in the model.</p>
+<p>The basic idea of empirical modeling is to determine the relationship between an <em>output variable</em> (𝒚) (a.k.a. response variable) and a set of one or more <em>input</em> variables (𝑿) (explanatory variables), e.g.</p>
+
+<pre><code>𝒚=𝒇(𝑿,𝑨)
+
+</code></pre>
+<p>where 𝑨 is a set of model <em>parameters</em>.</p>
+<p>To develop an empirical model, our first requirement is <strong>data</strong>.  We must have sufficient observational data relating our <em>response variable</em>, <strong>y</strong>, to our <em>predictor variable(s)</em>, <strong>X</strong>.  This is a fundamental requirement of empirical modeling. Additionally, we will need to specify a <em>functional form</em> for our model - the equation describing the relationship between <strong>y</strong> and <strong>X</strong> that we will fit to the data.</p>
+<p>Let’s look at an example focusing on addressing the question “Are crop planting dates changing though time, and if so, how fast?” The graph below shows planting dates for two crops, corn and strawberries, at a location in the Pacific Northwest, plotted over time. The orange boxes on the chart are observed planting dates through time for Field Corn, and the green triangles are for Strawberries. How would you determine the expected planting date for these crops next year?
+<img src="./PlantingDates.png" width='600px' style='float:right;padding:1em'></img></p>
+<p>Let’s suppose we want to fit these datasets to a line.  Remember, a line is an equation of the form <em>y=intercept + slope*x</em>.  For this model, our <strong>y</strong> variable – the <em>response</em> variable that we are trying to predict – is the planting date for the crop of interest.  The <strong>x</strong> variable – the <em>predictor</em> variable – is the Year.  Our task with our regression model is to estimate the planting date for any given year.</p>
+<p>For our line model, this means finding the “best-fit” values for the slope and intercept, the parameters in our model.  To do so, we will emply the technique of <strong>Simple Linear Regression</strong>, which simply means we will assume a line as our model function form, and <em>regress</em> (fit) the line to our data by finding the "best-fit" values for the model parameters, in this case slope and intercept, based on our observational data.  Our procedure will determine the "best-fit" values of slope and intercept by <strong>minimizing the difference between our model equation and the observed data</strong>.  More specifically, we will minimize the "error sum of squares" (S<sub>r</sub>) between the observations and the corresponding modeled results, defined as:</p>
+<p>$ S_r = \sum{(y_{obs}-y_{modeled})^2} $, summed over all observations.</p>
+<h2 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression"> </a></h2><p>In the example above, our model functional form is assumed to be a line, i.e.:</p>
+<p>$ Planting Date =\alpha * \beta*Year, $</p>
+<p>There are many ways to solve for our two parameters, $\alpha and \beta$; we will show two such approaches below, both using Python to carry out our regression procedure.  In the first case, we will use the <code>polyfit</code> method in the <code>numpy</code> package; in the second will will use the <code>linregress</code> method in the <code>scipy.stats</code> package.  Generally, our procedure is as follows:</p>
+<ol>
+<li>Load the observational data into our program (using <code>pandas</code>).  In this case, the data is available on the web at <a href="http://explorer.bee.oregonstate.edu/Topic/Modeling/Data/crvo_1991_2016_plantdates.xlsx">http://explorer.bee.oregonstate.edu/Topic/Modeling/Data/crvo_1991_2016_plantdates.xlsx</a>, in the form of an Excel file.  You can examine this file in Excel by clicking on the link. You will see columns representing various crops, and rows reprenting years.  We will focus our attention on Strawberries (column 'SBRY') for the first regression, and Field Corn (column 'FCRN') in our second example. </li>
+<li>Visualize the data (using <code>matplotlib</code>).</li>
+<li>Run the regression (using either <code>polyfit</code> or <code>linregress</code> methods.</li>
+<li>Assess the results.</li>
+</ol>
+<p>Python code is provided below.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Program for running a linear regression on the Planting Date dataset</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>        <span class="c1"># because it&#39;s numpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>       <span class="c1"># data library</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Step 1 - get the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span> <span class="s2">&quot;http://explorer.bee.oregonstate.edu/Topic/Modeling/Data/crvo_1991_2016_plantdates.xlsx&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span> <span class="p">)</span>   <span class="c1"># print the column headers to the console</span>
+
+<span class="n">xObs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span>    <span class="c1"># extract the predictor &quot;x&quot; data (column=&#39;Year&#39;)</span>
+<span class="n">yObs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SBRY&#39;</span><span class="p">]</span>    <span class="c1"># extract the response &quot;y&quot; data (column=&#39;SBRY&#39;)</span>
+
+<span class="c1"># Step 3 - plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span><span class="n">yObs</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Strawberries&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;FCRN&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Field Corn&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Planting Dates Through Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Planting Date (Day of Year)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Station&#39; &#39;Year&#39; &#39;ALFM&#39; &#39;APPL&#39; &#39;BLUB&#39; &#39;FCRN&#39; &#39;LAWN&#39; &#39;SBRY&#39; &#39;SGRN&#39; &#39;TBER&#39;
+ &#39;WGRN&#39;]
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/Tools/Modeling-Techniques/1-Linear-Regression/Linear-Regression_1_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see, their appears to be a broad trend downward in the data, and we could imagine fitting a straight line through the data reasonably well(particulary for Strawberries).  We'll do that in our next code block below, which 1) runs the regression procedure to determine the "best-fit" slope and intercept values (see <a href="https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html">https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html</a> for the documentation on <code>numpy.polyfit()</code>), and 2) plot the results.  We will generate two plots; the first will show the observed and modeled data, the second will plot observed vs. predicted data and a <em>line of perfect fit</em>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We&#39;ve already loaded the data (above), run the regression using polyfit()</span>
+<span class="p">(</span><span class="n">slope</span><span class="p">,</span><span class="n">intercept</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span> <span class="n">yObs</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    <span class="c1"># solve the first order polynomial - returns list of coefficients</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;The Best-fit parameter values are: intercept=</span><span class="si">{:.2f}</span><span class="s2">, slope=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">intercept</span><span class="p">,</span> <span class="n">slope</span><span class="p">))</span>
+
+<span class="c1"># generate modeled results (predictions) for each observed point</span>
+<span class="n">yModeled</span> <span class="o">=</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span><span class="o">*</span><span class="n">xObs</span>
+
+<span class="c1"># plot the results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># first plot - observed and modeled data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span><span class="n">yObs</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Observed&quot;</span><span class="p">)</span>   <span class="c1"># observed data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span> <span class="n">yModeled</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicted&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Strawberry Planting Dates Through Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Planting Date (Day of Year)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># second plot - observed vs, predicted</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">yObs</span><span class="p">,</span> <span class="n">yModeled</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">yObs</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">yObs</span><span class="o">.</span><span class="n">max</span><span class="p">()),(</span><span class="n">yObs</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">yObs</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Line of Perfect Fit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Observed vs Predicted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted (Modeled) Planting Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Observed Planting Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The Best-fit parameter values are: intercept=1192.38, slope=-0.56
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/Tools/Modeling-Techniques/1-Linear-Regression/Linear-Regression_3_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Intepreting these results, we can say that the slope of -0.56 indicates that on average, the planting date for Strawberries at this location, over the time period captured by the observational dataset, is advancing by 0.56 days per year, or about 5.6 days per decade. Note that we aren't trying to <em>explain</em> why this is the case (that would get us into the realm of mechanistic modeling), we are just fitting the model to the data and interpreting the results.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-well-did-the-model-perform-at-fitting-data?">How well did the model perform at fitting data?<a class="anchor-link" href="#How-well-did-the-model-perform-at-fitting-data?"> </a></h3><p>Is is generally important to assess how well the model was able to fit the data. We will discuss techniques for assessing model performance more fully in the <a href="../6-Model-Validation-and-Testing/Model-Validation-and-Testing.html">Model Validation and Testing</a> section of this chapter. For now, though, we'd like a statistic that provides an indication of how the model performed, and a simple metric for this is the <strong>coefficient of determination</strong> (r<sup>2</sup>). The r<sup>2</sup> value is a  “goodness of fit” statistic measuring how much of the variability observed in the data can be explained by the model.  Ideally, a given model will explain all the variability in an observational dataset, meaning it would perfectly predict all data points.  Conversely, a poor model would explain very little or none of the observed data.</p>
+<p>For most problems you are likely to encounter in ecological engineering, reasonable r-square values generally run between about 0.5 and 0.9, meaning these models typical can explain about 50 to 90 percent of the variability in an observed dataset.</p>
+<p>Given observed and modeled results, we can calculate r2 using numpy's <code>coercoff()</code> function as follows:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span><span class="n">yObs</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># correlation coefficent</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">r</span>     <span class="c1"># coefficient of determination</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The r2 value is </span><span class="si">{:.3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The r2 value is 0.266
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This indicates that the fitted model was able to explain roughly 81 percent of the variability observed in the data, and doesn't account for the remaining 19 percent.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Let's-repeat-this-process,-this-time-using-the-scipy.stats-package's-linregress()-function.">Let's repeat this process, this time using the <code>scipy.stats</code> package's <code>linregress()</code> function.<a class="anchor-link" href="#Let's-repeat-this-process,-this-time-using-the-scipy.stats-package's-linregress()-function."> </a></h3><p>The <code>numpy.polyfit()</code> method is very simple to use (and can be applied to higher-order polynomial functions as well), but doesn't provide much additional information about the regression that the best-fit parameter values. One alternative that does is the <code>linregress()</code> method in the <code>scipy.stats</code> package.  In additional to estimating the best fit parameters for a line, this method returns information about how well the model performed. Specifically, it returns the best-fit parameters, an <strong>r-value</strong> that is a measure of goodness of fit for the resulting model to the observed data, the <strong>p-value</strong> for the fit, essentially an indicator of how confident we are in the model results, and the <strong>standard error</strong> of the model compared to the observed data.</p>
+<p>Let's also look at a different crop in the observational dataset, field corn, whose planting dates are in column "FCRN" in the observational dataset.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>   <span class="c1"># for linregress()</span>
+
+<span class="c1"># update our observed data to reflect Field Corn</span>
+<span class="n">yObs</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;FCRN&#39;</span><span class="p">]</span>    <span class="c1"># extract the response &quot;y&quot; data (column=&#39;FCRN&#39;)</span>
+
+<span class="c1"># run regression</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span><span class="n">yObs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;linregress() results: Slope: </span><span class="si">{:.3}</span><span class="s2">, Intercept: </span><span class="si">{:.3}</span><span class="s2">, r2-value: </span><span class="si">{:.3}</span><span class="s2">, p-value: </span><span class="si">{:.3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">p_value</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># generate modeled results</span>
+<span class="n">yModeled</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">xObs</span> <span class="o">+</span> <span class="n">intercept</span>
+
+<span class="c1"># make a figure with two plots - first is observed, predicted vs. time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span><span class="n">yObs</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span> <span class="p">)</span>   <span class="c1"># add observation series</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span> <span class="n">yModeled</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="p">)</span>    <span class="c1"># add modeled series</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="s2">&quot;Regression Results - Field Corn Planting Dates &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;Observed&#39;</span><span class="p">,</span> <span class="s1">&#39;Predicted&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span> <span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span> <span class="s2">&quot;Planting Day of Year&quot;</span><span class="p">)</span>
+
+<span class="c1"># second is predicted vs observed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">yModeled</span><span class="p">,</span><span class="n">yObs</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span> <span class="p">)</span>   <span class="c1"># add observation series</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">((</span><span class="n">yObs</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">yObs</span><span class="o">.</span><span class="n">max</span><span class="p">()),(</span><span class="n">yObs</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">yObs</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="p">)</span>    <span class="c1"># add modeled series</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="s2">&quot;Regression Results - Field Corn Planting Dates &quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Line of Perfect Fit&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span> <span class="s2">&quot;Observed Planting Date&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span> <span class="s2">&quot;Predicted Planting Date&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>linregress() results: Slope: -1.19, Intercept: 2.49e+03, r2-value: 0.266, p-value: 0.00694
+</pre>
+</div>
+</div>
+</div>
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/Tools/Modeling-Techniques/1-Linear-Regression/Linear-Regression_9_1.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are a couple things to note here.  First, the observed data for Field Corn has considerably more variability than what we saw for Strawberries in the first example, although there does appear to be a general downward trend in the data through time, similar to what we observed with Strawberries. As a consequence, we would expect the Field Corn model to not perform as well, and indeed, the r<sup>2</sup> value of 0.266 indicates that the correlation between the model and the data is considerably lower;  this model only explains roughly 27 percent of the variability in the observed results, and other (unknown) factors are responsible for the remaining variability. Second, the rate at which planting dates are advancing is roughly double the rate for strawberries, 12 days per decade compared to the 5.6 days/decade observed for Strawberries.</p>
+<p><strong>So what can we conclude from this analysis</strong>  First, we should recognize that we have limited data available for this analysis;  more data would help build confidence in our results.</p>
+<p>Second, we can examine the p-value to assess the confidence that our model is better than the "null" hypothesis (that the model does no better than the mean of the data at predicting results).  Small p-values generally mean one of two things:</p>
+<ol>
+<li>The null hypothesis is true, but we were just very lucky in obtaining our observed sample.</li>
+<li>Our sample is the way it is due to the fact that the null hypothesis is false.</li>
+</ol>
+<p>In general, the smaller the p-value, the more evidence that we have that our model is good. Generally p-values less than 0.05 are interpreted as "the model is very likely better at describing the data than the null model", whereas p-values greater than 0.05 indicate low confidence in the model.  In this case, our p-value of 0.00694 indicates our model is very likely to outperform the null model.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Using-the-model-to-predict-future-planting-dates">Using the model to predict future planting dates<a class="anchor-link" href="#Using-the-model-to-predict-future-planting-dates"> </a></h3><p>Once we have fit our model, whe can use it predict future planting dates.  For example, using the Field Corn model, we can estimate the planting date in 2030 as follows:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plantingDate2030</span> <span class="o">=</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span><span class="o">*</span><span class="mi">2020</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Planting date in 2030 is estimated to be the </span><span class="si">{}</span><span class="s2">th day of the year&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">plantingDate2030</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Planting date in 2030 is estimated to be the 89th day of the year
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reflections-on-this-module">Reflections on this module<a class="anchor-link" href="#Reflections-on-this-module"> </a></h2><p>Above, we developed procedures for fitting a very two very simple models (lines) to two sets of data, and did an initial assessment of how these model performed.</p>
+<p>Some additional considerations:</p>
+<ol>
+<li><p>We chose to model the data with a line, but what if we wanted to use a different functional form for our model?  In the case of linear models, these techniques are easily extended to higher-order polynominals (e.g. $ y=\alpha + \beta_1 (X) + \beta_2 (X^2) $, a second order polynomial)  These <strong>Polynomial Regression</strong> techniques are discussed <a href="./Polynomial-Regression.html">next</a>. Problems which have multiple explanatory variables are termed <strong>Multiple Regression</strong> problems, and are discussed <a href="./Multiple-Regression.html">here</a>.  In the case of more complex, nonlinear model functions, we need to apply <a href="../2-Nonlinear-Regression/Nonlinear-Regression.html"><strong>Nonlinear Regression</strong></a> techniques - the methods presented here apply only to linear models.</p>
+</li>
+<li><p>Our approach for assessing model performance was limited.  More robust techniques for model testing and validation are presented <a href="../6-Model-Validation-and-Testing/Model-Validation-and-Testing.html">here</a></p>
+</li>
+<li><p>We should be skeptical of any model, particularly empirical models, when forecasting outside of the range of data used to fit the model. It is always appropriate to question model results!</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Additional-Resources">Additional Resources<a class="anchor-link" href="#Additional-Resources"> </a></h2><p>A set of worked <a href="./Example-Problems-Linear-Regression.html">example problems</a> is available to see these and similar techniques in action.  Additionally, a set of <a href="./Exercise-Linear-Regression.html">exercises for you to solve</a> is also available; you are encouraged to work through these exercises.</p>
+<p>A useful summary of Linear Regression is available on <a href="https://en.wikipedia.org/wiki/Linear_regression">Wikipedia</a>.</p>
+<p>Two useful videos describing Linear Regression are availalbe on YouTube - the first <a href="https://www.youtube.com/watch?v=EDPCsD6BzWE">provides an overview of Linear Regression</a>, the second <a href="https://www.youtube.com/watch?v=88_wgLgx0_k">uses Python to solve these models</a>.</p>
+
 </div>
 </div>
 </div>

@@ -13,7 +13,7 @@ prev_page:
 next_page:
   url: /Tools/Modeling-Techniques/2-Nonlinear-Regression/Nonlinear-Regression.html
 suffix: .ipynb
-search: model data our regression fit observed planting results linear variable line strawberries values empirical using html models equation form parameters observational y example dates corn best case second well value variability very p generally between field date techniques validation testing modeling lets fitting set determine x intercept slope polyfit method numpy available dataset explain problems null does mean any response variables below through year predict simple procedure modeled linregress indicates days percent polynomial additional here nonlinear just estimate explanatory e functional describing crop crops next given function alpha solve beta python package scipy stats follows column assess per decade performed
+search: model data our regression fit observed planting results linear variable line y strawberries values empirical using html models equation form parameters between observational example dates corn best case sum second well value variability null very p generally field date available techniques validation testing modeling mean lets fitting set determine x intercept slope error modeled polyfit method numpy dataset explain problems does any response variables below through year predict simple procedure squares linregress follows indicates days rsup sup percent polynomial additional here nonlinear just estimate explanatory e functional describing crop crops next given difference sr above alpha solve beta python package
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -219,9 +219,13 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="How-well-did-the-model-perform-at-fitting-data?">How well did the model perform at fitting data?<a class="anchor-link" href="#How-well-did-the-model-perform-at-fitting-data?"> </a></h3><p>Is is generally important to assess how well the model was able to fit the data. We will discuss techniques for assessing model performance more fully in the <a href="../6-Model-Validation-and-Testing/Model-Validation-and-Testing.html">Model Validation and Testing</a> section of this chapter. For now, though, we'd like a statistic that provides an indication of how the model performed, and a simple metric for this is the <strong>coefficient of determination</strong> (r<sup>2</sup>). The r<sup>2</sup> value is a  “goodness of fit” statistic measuring how much of the variability observed in the data can be explained by the model.  Ideally, a given model will explain all the variability in an observational dataset, meaning it would perfectly predict all data points.  Conversely, a poor model would explain very little or none of the observed data.</p>
+<h3 id="How-well-did-the-model-perform-at-fitting-data?">How well did the model perform at fitting data?<a class="anchor-link" href="#How-well-did-the-model-perform-at-fitting-data?"> </a></h3><p>Is is generally important to assess how well the model was able to fit the data. We will discuss techniques for assessing model performance more fully in the <a href="../6-Model-Validation-and-Testing/Model-Validation-and-Testing.html">Model Validation and Testing</a> section of this chapter. For now, though, we'd like a statistic that provides an indication of how the model performed, and a simple metric for this is the <strong>coefficient of determination</strong> (r<sup>2</sup>). The r<sup>2</sup> value is a  “goodness of fit” statistic measuring how much of the variability observed in the data can be explained by the model. It is defined as the normalized difference between the error sum of squares of the fitted model compared to the null model as follows:</p>
+<p>Error sum of squares of null model: $ S_t = \sum{(y_i-y_{mean})^2} $</p>
+<p>Error sum of squares of fitted model: $ S_r = \sum{(y_i-y_{modeled})^2} $</p>
+<p>Normalized difference (coefficient of determination): $\large r^2 = \frac{S_t - S_r}{S_t} $</p>
+<p>Ideally, a given model will explain all the variability in an observational dataset, meaning it would perfectly predict all data points.  Conversely, a poor model would explain very little or none of the observed data.</p>
 <p>For most problems you are likely to encounter in ecological engineering, reasonable r-square values generally run between about 0.5 and 0.9, meaning these models typical can explain about 50 to 90 percent of the variability in an observed dataset.</p>
-<p>Given observed and modeled results, we can calculate r2 using numpy's <code>coercoff()</code> function as follows:</p>
+<p>Given observed and modeled results, we can calculate r<sup>2</sup> using the formula above as follows:</p>
 
 </div>
 </div>
@@ -235,9 +239,10 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">xObs</span><span class="p">,</span><span class="n">yObs</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># correlation coefficent</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">r</span>     <span class="c1"># coefficient of determination</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">yObs</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">St</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">yObs</span><span class="o">-</span><span class="n">mean</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Sr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">yObs</span><span class="o">-</span><span class="n">yModeled</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="p">(</span><span class="n">St</span><span class="o">-</span><span class="n">Sr</span><span class="p">)</span><span class="o">/</span><span class="n">St</span>     <span class="c1"># coefficient of determination</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The r2 value is </span><span class="si">{:.3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r2</span><span class="p">))</span>
 </pre></div>
 
@@ -252,7 +257,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The r2 value is 0.266
+<pre>The r2 value is 0.811
 </pre>
 </div>
 </div>
@@ -449,7 +454,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Additional-Resources">Additional Resources<a class="anchor-link" href="#Additional-Resources"> </a></h2><p>A set of worked <a href="./Example-Problems-Linear-Regression.html">example problems</a> is available to see these and similar techniques in action.  Additionally, a set of <a href="./Exercise-Linear-Regression.html">exercises for you to solve</a> is also available; you are encouraged to work through these exercises.</p>
 <p>A useful summary of Linear Regression is available on <a href="https://en.wikipedia.org/wiki/Linear_regression">Wikipedia</a>.</p>
-<p>Two useful videos describing Linear Regression are availalbe on YouTube - the first <a href="https://www.youtube.com/watch?v=EDPCsD6BzWE">provides an overview of Linear Regression</a>, the second <a href="https://www.youtube.com/watch?v=88_wgLgx0_k">uses Python to solve these models</a>.</p>
+<p>Two useful videos describing Linear Regression are available on YouTube - the first <a href="https://www.youtube.com/watch?v=EDPCsD6BzWE">provides an overview of Linear Regression</a>, the second <a href="https://www.youtube.com/watch?v=88_wgLgx0_k">uses Python to solve these models</a>.</p>
 
 </div>
 </div>
